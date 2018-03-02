@@ -1,0 +1,14 @@
+//- svg mixin
+mixin svgMix(svgClass, name)
+	svg(class=svgClass)
+		use(xlink:href='assets/img/sprite.svg#'+name)
+
+
+//- breadCrumbs mixin
+//- items - массив с последовательностью крошек
+mixin breadCrumbs(items, yetClass)
+	if yetClass
+		ul(class="breadCrumbs" + " " + yetClass)
+			each i in items
+				li.breadCrumbs__item
+					a(href="#").breadCrumbs__link= i
