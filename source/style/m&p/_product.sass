@@ -1,0 +1,54 @@
+.product
+	max-width: 290px
+	min-width: 290px
+	width: 100%
+	border: solid 1px $grey
+	&__img
+		width: auto
+		height: auto
+	&__name
+		font-size: 1.111rem
+		color: $product-black
+	&__model
+		font-size: 0.9444rem
+		color: $product-grey
+	&__price
+		&-box
+			color: $product-grey
+	&__more
+		font-size: 0.8889rem
+		color: $product-grey-btn
+		width: 150px
+		height: 40px
+		display: flex
+		justify-content: center
+		align-items: center
+		border: 1px solid $product-grey
+		border-radius: 3px
+	&__price
+		padding-left: 36px
+		position: relative
+		&:before
+			position: absolute
+			content: ''
+			display: block
+			background-repeat: no-repeat
+			background-size: 100% 100%
+			left: 0
+			top: 50%
+			transform: translateY(-50%)
+		&-box
+			& > div b
+				font-size: 1.111rem
+				color: $product-black
+				margin-right: 5px
+		&.-pair
+			&:before
+				width: 25px
+				height: 20px
+				background-image: url('../img/medisa/shoes.svg')
+		&.-box
+			&:before
+				width: 20px
+				height: 20px
+				background-image: url('../img/medisa/box-closed.svg')

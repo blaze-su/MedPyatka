@@ -1,14 +1,31 @@
 //- svg mixin
-mixin svgMix(svgClass, name)
+mixin svgMix(svgClass, name, mOrP)
 	svg(class=svgClass)
-		use(xlink:href='assets/img/sprite.svg#'+name)
+		if mOrP === "m"
+			use(xlink:href='assets/img/medisa/sprite.svg#'+name)
+		if mOrP === "p"
+			use(xlink:href='assets/img/pyatka/sprite.svg#'+name)
 
 
 //- breadCrumbs mixin
-//- items - массив с последовательностью крошек
-mixin breadCrumbs(items, yetClass)
-	if yetClass
-		ul(class="breadCrumbs" + " " + yetClass)
-			each i in items
-				li.breadCrumbs__item
-					a(href="#").breadCrumbs__link= i
+mixin breadCrumbs(items)
+	.breadcrumbs.container
+		each i in items
+			a(href="#").breadcrumbs__link= i
+
+mixin medisa-product(name, model, imgSrc, dual_price, corob_price, _new)
+	.product
+		if (_new === true)
+			.product__mark
+				.product__mark-item(style="background: #ffcb00") New
+		img.product__img(src= imgSrc, alt= name)
+		strong.product__name= name
+		p.product__model= model
+		.product__price-box
+			.product__price.-pair
+				b= dual_price + " ₽"
+				| за пару
+			.product__price.-box
+				b= corob_price + " ₽"
+				| за короб
+		a(href="#").product__more Подробнее

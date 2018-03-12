@@ -1,0 +1,12 @@
+extends ../_template
+
+block variables
+	- var bodyClass = 'is-home';
+	- var m = true;
+
+block content
+	include ./../common/_slider.pug
+	include ./../common/_ticker.pug
+	section.popular-models
+		h1.title.-lg Популярные модели
+		include ./../common/_popular-models.pug

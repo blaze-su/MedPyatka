@@ -1,0 +1,27 @@
+block header
+   header.header
+      .container
+         a(href="/").logo__link
+            img(src="./assets/img/medisa/logo.png", alt="logotype").logo
+         .header-info__area
+            .header-info__header-line
+               h1.title.-lg Обувь оптом
+               form(action="" method="POST").header-search
+                  input(type="text" placeholder="Поиск на сайте").header-search__input
+                  button(type="submit").header-search__submit
+            .header-menu
+               ul.header-menu__info
+                  li.header-menu__item
+                     +svgMix("header-menu__icon", "map-pointer", "m")
+                     p г. Краснодар, ул.Стасова, 182/1
+                  li.header-menu__item
+                     +svgMix("header-menu__icon", "phone", "m")
+                     p 8 (918) 633-09-29
+                        span  пн-пт 9:00 до 18:00
+               ul.header-menu__link
+                  li.header-menu__item
+                     +svgMix("header-menu__icon", "login", "m")
+                     a(href="#") Войти
+                  li.header-menu__item
+                     +svgMix("header-menu__icon", "shopping-bag", "m")
+                     a(href="#") 50 товаров 150 000 ₽

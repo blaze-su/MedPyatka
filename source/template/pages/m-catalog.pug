@@ -1,0 +1,10 @@
+extends ../_template
+
+block variables
+	- var m = true;
+
+block content
+	+breadCrumbs(["Главная", "Каталог"])
+	.catalog.container
+		h1.title.-lg Каталог
+		.catalog__listing

@@ -6,7 +6,14 @@ let cssunit = require('gulp-css-unit');
 
 module.exports = () => {
     $.gulp.task('sass', () => {
-        return $.gulp.src('./source/style/style.sass')
+        return $.gulp.src('./source/style/m-style.sass')
+            .pipe(sassGlob())
+            .pipe($.gp.sass()).on('error', $.gp.notify.onError({ title: 'Style' }))
+            .pipe($.gp.autoprefixer({ browsers: $.config.autoprefixerConfig }))
+            .pipe(csso())
+            .pipe($.gulp.dest($.config.root + '/assets/css'))
+            .pipe($.browserSync.stream()),
+            $.gulp.src('./source/style/p-style.sass')
             .pipe(sassGlob())
             .pipe($.gp.sass()).on('error', $.gp.notify.onError({ title: 'Style' }))
             .pipe($.gp.autoprefixer({ browsers: $.config.autoprefixerConfig }))
