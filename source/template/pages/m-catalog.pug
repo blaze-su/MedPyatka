@@ -7,4 +7,134 @@ block content
 	+breadCrumbs(["Главная", "Каталог"])
 	.catalog.container
 		h1.title.-lg Каталог
-		.catalog__listing
+		.listing
+			.listing__grid-aside
+				-
+					var filters = [
+						{title: "Цена за короб", min: 5000, max: 10000,checkItems: ["Пол короба"]},
+						{title: "Цена за пару", min: 500, max: 1000},
+						{title: "Сезон", checkItems: ["Зима","Демисезон","Весна-Лето","Всесезонные"]},
+						{title: "Сегмент", checkItems: [
+							"Мужская",
+							"Женская",
+							"Детская",
+							"Комнатная",
+							"Спорт",
+							"Спецобувь (сабо)"]
+						},
+						{title: "Вид обуви", checkItems: [
+							"Босоножки",
+							"Ботильоны",
+							"Ботинки",
+							"Кроссовки",
+							"Мокасины",
+							"Полуботинки",
+							"Полусапоги",
+							"Пантолеты",
+							"Сандали",
+							"Сапоги",
+							"Туфли"]
+						},
+						{title: "Материал верха", checkItems: [
+							"Иск.замша",
+							"Иск.кожа",
+							"Иск.нубук",
+							"Комбинированный",
+							"Нат.кожа + Иск.замша",
+							"Нат.кожа + Иск.кожа",
+							"Нат.кожа + Комб.",
+							"Натуральная замша",
+							"Натуральная кожа",
+							"ПВХ",
+							"Стрейч",
+							"Текстиль"]
+						},
+						{title: "Материал подкладки", checkItems: [
+							"Байка",
+							"Искусственная кожа",
+							"Искуственный мех",
+							"Натуральная кожа",
+							"Натуральный мех",
+							"Текстиль",
+							"Шерсть",
+							"Полушерсть"]
+						},
+						{title: "Размерный ряд", dual: true, checkItems: [
+							"19-26","29-36","20-24","30-35","20-25","30-36","21-25","30-37","21-26",
+							"31-36","21-29","31-37","21-30","31-38","22-26","32-32","22-27","32-36",
+							"22-29","32-37","23-27","33-38","23-28","34-39","23-32","34-41","24-31",
+							"35-39","25-30","35-40","25-32","36-40","25-34","36-41","26-30","37-41",
+							"26-31","37-42","27-31","39-44","27-32","40-45","27-34","41-46","28-33",
+							"42-47","28-35"]
+						},
+						{title: "Брэнды", checkItems: [
+							"Cavaletto",
+							"Марко",
+							"Inblu",
+							"Keddo",
+							"Отико",
+							"Rieker",
+							"Алми",
+							"Эго",
+							"SC-Collection",
+							"Sigma Sport",
+							"ID Collection",
+							"MenLine",
+							"Rosconi",
+							"Lazzaro",
+							"LeGre",
+							"Romika",
+							"Zaxy",
+							"Bonty"]
+						},
+						{title: "Производство", checkItems: [
+							"Китай",
+							"Беларусь",
+							"Украина",
+							"Германия",
+							"Россия",
+							"Бразилия",
+							"Молдова"]
+						},
+						{title: "Цвет", checkItems: [
+							"Черный",
+							"Белый",
+							"Красный",
+							"Мультиколор",
+							"Синий",
+							"Зеленый"]
+						},
+					]
+				form.listing-filter
+					each item in filters
+						.listing-filter__item
+							.listing-filter__item-header
+								p.listing-filter__item-title= item.title
+							.listing-filter__item-content
+								span.listing-filter__item-reset Сбросить фильтр
+								- if (item.min && item.max)
+									.listing-filter__price
+										label.form-control От
+											input.form-control__input(type="text" value= item.min)
+										label.form-control До
+											input.form-control__input(type="text" value= item.max)
+								- if (item.checkItems)
+									each check in item.checkItems
+										- if (item.dual)
+											.listing-filter__check-list.-multi
+										- else
+											.listing-filter__check-list
+										label.checkbox-label
+											span.checkbox-text= check
+											input.checkbox(type="checkbox")
+					.listing-filter__item.-bottom
+						button(type="submit").form-submit Применить
+						button.form-clear Очистить фильтр
+													
+
+			.listing__grid-main
+				.listing__control
+					.listing__control-sort
+					.listing__control-sort
+				.listing__generated-container
+					+medisa-product-listing()

@@ -29,3 +29,9 @@ mixin medisa-product(name, model, imgSrc, dual_price, corob_price, _new)
 				b= corob_price + " ₽"
 				| за короб
 		a(href="#").product__more Подробнее
+
+mixin medisa-product-listing()
+	-
+		var products = []
+	each product in products
+		+medisa-product(product.name, product.model, product.imgSrc, product.dual_price, product.corob_price, product._new)
