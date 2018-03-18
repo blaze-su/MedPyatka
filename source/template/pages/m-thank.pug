@@ -1,0 +1,24 @@
+extends ../_template
+
+block variables
+   - var m = true;
+
+block content
+   main.container
+      .thank
+         h1.title Для департаментов и организаций
+         p.order-number Ваш № заказа ХХХХХХХХХ.
+         p.
+            Спасибо за то, что выбрали нас. Наш менеджер свяжется с Вами для уточнения заказа в течение 10 минут. 
+            Если у Вас возникли какие-либо вопросы или предложения относительно Вашего заказа или нашей работы, 
+            можете позвонить или написать нам.
+         table.thank-contact
+            tr.thank-contact__row
+               td.thank-contact__cell Телефон
+               td.thank-contact__cell
+                  h2 8 (918) 633-09-29
+            tr.thank-contact__row
+               td.thank-contact__cell Почта
+               td.thank-contact__cell
+                  p midisa-yug@yandex.ru
+         a.back-to-site(href="/") Вернуться на сайт

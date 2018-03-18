@@ -1,6 +1,9 @@
 .product
 	padding: 20px 25px 30px
 	position: relative
+	display: flex
+	flex-wrap: wrap
+	align-content: space-between
 	&__mark
 		position: absolute
 		top: 0
@@ -13,9 +16,15 @@
 			padding: 0 1.199em
 			display: inline-block
 	&__img
-		max-width: 168px
+		max-width: 200px
 		max-height: 168px
-		margin-bottom: 1.667rem
+		margin: auto 0
+		&-box
+			height: 168px
+			margin-bottom: 1.667rem
+			display: flex
+	&__review
+		width: 100%
 	&__name
 		margin-bottom: 0.5rem
 	&__model

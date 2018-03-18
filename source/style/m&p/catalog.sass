@@ -1,8 +1,130 @@
 .catalog
-   flex: 1
+	flex: 1
+	&-description
+		margin: 4.444rem 0
+		line-height: 1.2
 
 .listing
-   &__grid
-      &-aside
-         max-width: 260px
-         width: 100%
+	display: flex
+	&__grid
+		&-aside
+			max-width: 260px
+			width: 100%
+			margin-right: 28px
+		&-main
+			max-width: 870px
+			width: 100%
+			&.-full
+				max-width: 100%
+	&__controls
+		margin-bottom: 2.222rem
+		justify-content: flex-end
+		display: flex
+		& > .control-sort:last-child
+			margin-left: 110px
+
+	&-filter
+		border-radius: 5px
+		border: solid 1px $grey
+		&__item
+			border-bottom: solid 1px $grey
+			&:last-child
+				border-bottom: none
+				padding: 10px 0
+			&-header
+				cursor: pointer
+				padding: 1.111rem 0.5556rem 1.111rem 1.667rem
+			&-content
+				display: none
+				font-size: 0.7778rem
+				padding: 0 0.5556rem 1.111rem 1.667rem
+			&.-open
+				& > .listing-filter__item-content
+					display: block
+				& > .listing-filter__item-header
+					padding-bottom: 0
+				& .listing-filter__item-title
+					&:before
+						top: -1px
+						left: -15px
+						transform: rotate(90deg)
+			&-title
+				position: relative
+				&:before
+					content: "›"
+					display: block
+					position: absolute
+					font-size: 1.222rem
+					left: -20px
+					top: 0
+					transform: translate(0%,-20%)
+			&-reset
+				cursor: pointer
+				margin-top: 0.5556rem
+				color: $grey-filter
+				text-decoration: underline
+				display: inline-block
+				&:hover
+					color: $black
+			& > button
+				font-size: 0.9444rem
+				width: 10.588em
+				padding: 0.588em
+				border-radius: 5px
+				margin-bottom: 10px
+				margin-left: auto
+				margin-right: auto
+				&:last-child
+					margin-bottom: 0
+		&__price
+			display: flex
+			margin-top: 1.111rem
+		&__check
+			&-list
+				margin-top: 1.111rem
+				&.-multi
+					display: flex
+					flex-wrap: wrap
+					& > .checkbox-label
+						max-width: 50%
+						width: 100%
+	&__generated-container
+		display: flex
+		flex-wrap: wrap
+
+.form
+   &-control
+      display: flex
+      align-items: center
+      margin-right: 15px
+      &:last-child
+         margin-right: 0
+      &__input
+         width: 3.889rem
+         height: 1.778rem
+         text-align: center
+         border-radius: 3px
+         border: solid 1px $grey
+         margin-left: 10px
+   &-submit
+      background-color: $yellow
+   &-clear
+      border: 1px solid $black
+      color: $grey-filter
+
+.checkbox
+	margin: 0 10px 0 0
+	float: left
+	width: 0.8333rem
+	height: 0.8333rem
+	&-label
+		display: block
+		margin-bottom: 0.8333rem
+		max-width: max-content
+		cursor: pointer
+		&:last-child
+			margin-bottom: 0
+	&-text
+		vertical-align: middle
+		&:hover
+			text-decoration: underline

@@ -1,18 +1,20 @@
 .breadcrumbs
-   padding: 20px 0
-   display: flex
-   &__link
-      margin-right: 20px
-      position: relative
-      &:last-child
-         margin-right: 0
-         color: $breadcrumbs-grey
-         &:after
-            content: none
-      &:after
-         content: '/'
-         position: absolute
-         top: 0
-         right: -12px
-         font-weight: bold
-         display: block
+	padding: 20px 0
+	display: flex
+	&__link
+		margin-right: 20px
+		position: relative
+		&:hover
+			text-decoration: underline
+		&:last-child
+			margin-right: 0
+			color: $breadcrumbs-grey
+			&:after
+				content: none
+		&:after
+			content: '/'
+			position: absolute
+			top: 0
+			right: -12px
+			font-weight: bold
+			display: block

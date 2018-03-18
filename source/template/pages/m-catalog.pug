@@ -3,10 +3,13 @@ extends ../_template
 block variables
 	- var m = true;
 
+
+
+//- ЭТА СТРАНИЦА ПОЛНАЯ КОПИЯ СТРАНИЦЫ БРЕНДЫ
 block content
 	+breadCrumbs(["Главная", "Каталог"])
 	.catalog.container
-		h1.title.-lg Каталог
+		h1.title Каталог
 		.listing
 			.listing__grid-aside
 				-
@@ -119,22 +122,32 @@ block content
 										label.form-control До
 											input.form-control__input(type="text" value= item.max)
 								- if (item.checkItems)
-									each check in item.checkItems
-										- if (item.dual)
-											.listing-filter__check-list.-multi
-										- else
-											.listing-filter__check-list
-										label.checkbox-label
-											span.checkbox-text= check
-											input.checkbox(type="checkbox")
-					.listing-filter__item.-bottom
+									- if (item.dual)
+										.listing-filter__check-list.-multi
+											each check in item.checkItems
+												label.checkbox-label
+													span.checkbox-text= check
+													input.checkbox(type="checkbox")
+									- else
+										.listing-filter__check-list
+											each check in item.checkItems
+												label.checkbox-label
+													span.checkbox-text= check
+													input.checkbox(type="checkbox")
+					.listing-filter__item
 						button(type="submit").form-submit Применить
 						button.form-clear Очистить фильтр
-													
 
 			.listing__grid-main
-				.listing__control
-					.listing__control-sort
-					.listing__control-sort
+				block sort
+					include ./../common/_listing-controls.pug
 				.listing__generated-container
 					+medisa-product-listing()
+				block pagination
+					include ./../common/_pagination.pug
+		.catalog-description
+			p.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+				reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+				deserunt mollit anim id est laborum.
