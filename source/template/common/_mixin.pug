@@ -13,27 +13,28 @@ mixin breadCrumbs(items)
 		each i in items
 			a(href="#").breadcrumbs__link= i
 
-mixin medisa-product(name, model, imgSrc, dual_price, corob_price, _new)
+mixin product(name, model, imgSrc, dual_price, corob_price, _new)
 	//- -viewed – класс для посещённых товаров
-	.product
-		if (_new === true)
-			.product__mark
-				.product__mark-item(style="background: #ffcb00") New
-		a(href="#").product__img-box
-			img.product__img(src= imgSrc, alt= name)
-		.product__review
-			strong.product__name= name
-			p.product__model= model
-			.product__price-box
-				.product__price.-pair
-					b= dual_price + " ₽"
-					| за пару
-				.product__price.-box
-					b= corob_price + " ₽"
-					| за короб
-		a(href="#").product__more Подробнее
+	if m === true
+		.product
+			if (_new === true)
+				.product__mark
+					.product__mark-item(style="background: #ffcb00") New
+			a(href="#").product__img-box
+				img.product__img(src= imgSrc, alt= name)
+			.product__review
+				strong.product__name= name
+				p.product__model= model
+				.product__price-box
+					.product__price.-pair
+						b= dual_price + " ₽"
+						| за пару
+					.product__price.-box
+						b= corob_price + " ₽"
+						| за короб
+			a(href="#").product__more Подробнее
 
-mixin medisa-product-listing()
+mixin product-listing()
 	-
 		var products = [
 			{name: "Rosconi", model: "Туфли мужские Alkv-27", imgSrc: "assets/img/medisa/products/1.png", dual_price: 750, corob_price: "7 500", _new: true},
@@ -50,4 +51,40 @@ mixin medisa-product-listing()
 			{name: "Kovaletto", model: "Босоножки женские Akd-436", imgSrc: "assets/img/medisa/products/4.png", dual_price: 630, corob_price: "6 300"}
 		]
 	each product in products
-		+medisa-product(product.name, product.model, product.imgSrc, product.dual_price, product.corob_price, product._new)
+		+product(product.name, product.model, product.imgSrc, product.dual_price, product.corob_price, product._new)
+
+mixin product-basket-inner(half, error)
+	if (half === true)
+		span.product-basket__part Пол короба
+		.product-basket__counter
+			.product-basket__count 10
+	else
+		if (error === true)
+			.product-basket__counter.-error
+				button.product-basket__count-btn –
+				.product-basket__count 10
+				button.product-basket__count-btn +
+		else
+			.product-basket__counter
+				button.product-basket__count-btn –
+				.product-basket__count 10
+				button.product-basket__count-btn +
+	span.product-basket__reserve На складе 20 
+	if (error === true)
+		p.product-basket__absence Нет товара в таком количестве
+
+mixin product-basket(imgSrc, half, error)
+	.product-basket
+		.product-basket__img-box
+			img(src= imgSrc, alt= title).product-basket__img
+		.product-basket__name Туфли мужские XXXXXX
+		if (half === true)
+			.product-basket__counter-box.-half
+				+product-basket-inner(half, error)
+		else
+			.product-basket__counter-box
+				+product-basket-inner(half, error)
+			
+		.product-basket__price 50 000 ₽ х 100 = 
+			span 5 000 000 ₽
+		button.product-basket__delete Удалить

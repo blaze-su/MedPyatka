@@ -1,0 +1,31 @@
+extends ../_template
+
+block variables
+   - var m = true;
+
+block content
+   +breadCrumbs(["Главная", "Корзина"])
+   main.basket.container
+      h1.title Корзина
+      a(href="#").back-to-buy Вернуться к покупкам
+      -
+         var productsImgSrc = [
+            '/assets/img/medisa/products/1.png',
+            '/assets/img/medisa/products/2.png',
+            '/assets/img/medisa/products/3.png',
+            '/assets/img/medisa/products/4.png'
+         ]
+      each item, i in productsImgSrc
+         if (i == 2)
+            +product-basket(item, false, true)
+         else
+            if (i == 3)
+               +product-basket(item, true, false)
+            else
+               +product-basket(item)
+
+      .basket__bottom-line
+         .basket-total
+            p.basket-total__text Итого:
+            p.basket-total__price 10 525 000 ₽
+         a(href="#").basket-issue Оформить заказ

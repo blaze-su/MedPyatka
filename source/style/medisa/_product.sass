@@ -35,3 +35,66 @@
 			margin-bottom: 0
 		&-box
 			margin-bottom: 1.667rem
+	&-basket
+		padding: 20px 47px 20px 20px
+		border-top: 1px solid $grey
+		border-bottom: 1px solid $grey
+		margin-bottom: -1px
+		display: flex
+		justify-content: space-between
+		align-items: center
+		&__img
+			max-width: 100%
+			width: auto
+			max-height: 100%
+			height: auto
+			&-box
+				width: 150px
+				height: 150px
+		&__name
+			font-size: 1.111rem
+			color: $basket-grey
+			margin-top: -1.389rem
+			max-width: 11.500em
+		&__counter
+			display: flex
+			align-items: center
+			margin-bottom: 12px
+			justify-content: center
+			&-box
+				text-align: center
+				&.-half
+					position: relative
+					top: -15px
+					& > .product-basket__counter
+						margin-top: 12px
+			&.-error				
+				margin-top: 1.444rem	
+				& > .product-basket__count
+					color: $error
+		&__count
+			margin: 0 20px
+			font-size: 1.111rem
+			&-btn
+				font-size: 1.333rem
+				width: 1.667em
+				height: 1.667em
+				border-radius: 50%
+				&:last-child
+					border: 1px solid $grey
+		&__part
+			font-size: 0.7778rem
+			color: $basket-grey
+		&__reserve
+			font-size: 0.7778rem
+			color: $basket-grey
+		&__absence
+			margin-top: 8px
+			color: $error
+		&__price
+			margin-top: -1.556rem
+			& > span
+				font-size: 1.333rem
+		&__delete
+			margin-top: -1.556rem
+			color: $basket-grey
