@@ -4,6 +4,7 @@
 	display: flex
 	flex-wrap: wrap
 	align-content: space-between
+	overflow: hidden
 	&__mark
 		position: absolute
 		top: 0
@@ -62,14 +63,15 @@
 			margin-bottom: 12px
 			justify-content: center
 			&-box
+				position: relative
 				text-align: center
+				min-width: 165px
+				max-width: 165px
 				&.-half
-					position: relative
-					top: -15px
+					top: -16px
 					& > .product-basket__counter
-						margin-top: 12px
-			&.-error				
-				margin-top: 1.444rem	
+						margin-top: 16px
+			&.-error
 				& > .product-basket__count
 					color: $error
 		&__count
@@ -91,8 +93,11 @@
 		&__absence
 			margin-top: 8px
 			color: $error
+			position: absolute
 		&__price
 			margin-top: -1.556rem
+			min-width: 267px
+			max-width: 267px
 			& > span
 				font-size: 1.333rem
 		&__delete

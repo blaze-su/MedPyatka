@@ -1,0 +1,52 @@
+.cart
+   & h1.title
+      margin-top: 0.5556rem
+      margin-bottom: 2.222rem
+   &__grid
+      display: flex
+      align-items: flex-start
+      &-overview
+         max-width: 560px
+         width: 100%
+         padding: 20px 0 25px 20px
+         display: flex
+         flex-wrap: wrap
+      &-data
+         max-width: 580px
+         width: 100%
+   &__photo
+      max-width: 90%
+      max-height: 90%
+      width: auto
+      margin: auto
+      &-box
+         max-width: 390px
+         width: 100%
+         display: flex
+         margin-right: 19px
+   &__preview
+      width: auto
+      margin: auto
+      &-list
+      &-item
+         cursor: pointer
+         width: 100px
+         height: 100px
+         margin-bottom: 10px
+         padding: 1px
+         border: 1px solid $grey
+         display: flex
+         &.-active
+            border-color: $yellow
+   &__feature
+      font-size: 1.111rem
+      margin-top: 2.222rem
+      margin-bottom: 3.333rem
+      &-row
+         display: flex
+         &:nth-child(2n - 1)
+            background-color: #f6f6f6
+      &-col
+         max-width: 50%
+         width: 100%
+         padding: 0.775em 1em

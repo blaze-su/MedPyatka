@@ -1,0 +1,43 @@
+.cart
+   &__price
+      font-size: 1.333rem
+      width: max-content
+      &-grid
+         & b
+            font-size: 1.667rem
+         &-row
+            display: flex
+            margin-bottom: 2rem
+            padding-top: 0.4em
+            &:first-child
+               margin-bottom: 3.333rem
+            &:last-child
+               margin-bottom: 1.778rem
+            & .product-basket__counter
+               margin-bottom: 0
+               &-box
+                  margin-top: -0.4em
+                  margin-left: 1.444rem
+            & .product-basket__absence
+               position: static
+               font-size: 14px
+         &-col
+            padding-top: 0.5556rem
+            flex: 1
+            &:first-child
+               margin: 0 2.5rem 0 1.389rem
+               min-width: 150px
+               max-width: 150px
+      &-total
+         margin-bottom: 2rem
+      &-btn
+         font-size: 1.111rem
+         min-width: 9.001em
+         padding: .6251em
+         background-color: $yellow
+         border: 1px solid $grey
+      &-footer
+         width: max-content
+         position: relative
+         left: 100%
+         transform: translateX(-100%)
