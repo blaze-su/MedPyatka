@@ -33,6 +33,21 @@ mixin product(name, model, imgSrc, dual_price, corob_price, _new)
 						b= corob_price + " ₽"
 						| за короб
 			a(href="#").product__more Подробнее
+	if p === true
+		.product
+			if (_new === true)
+				.product__mark
+					.product__mark-item(style="background: #ffcb00") New
+			a(href="#").product__img-box
+				img.product__img(src= imgSrc, alt= name)
+			.product__review
+				strong.product__name= name
+				p.product__model= model
+				.product__price-box
+					.product__price
+						b 500 ₽
+						
+			a(href="#").product__more Подробнее
 
 mixin product-listing()
 	-

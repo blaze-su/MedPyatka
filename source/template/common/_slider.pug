@@ -1,15 +1,30 @@
 .news.container
-	.news__list
-		.news__item
-			strong.news__item-title Вниманию оптовиков!
-			i С 20 по 22 марта в нашем офисе состоится очередная презентация обувной коллекции 
-				ins «Осень-Зима 2018 - 2019»
-				|.
-			i Будут представлены ТМ Cavaletto, Марко, Inblu, Keddo, Отико, Rieker, Алми, Эго, ID Collection, Laura Valorosa, Rosconi и др.
-		.news__item
-			strong.news__item-title Поступление весенне-летней коллекции.
-			i Уже на складе новые модели ТМ Cavaletto, Rieker, Keddo, Марко и др.!
-			b Обновление ассортимента 2-3 раза в неделю!
+	- if (m === true)
+		.news__list
+			.news__item
+				strong.news__item-title Вниманию оптовиков!
+				i С 20 по 22 марта в нашем офисе состоится очередная презентация обувной коллекции 
+					ins «Осень-Зима 2018 - 2019»
+					|.
+				i Будут представлены ТМ Cavaletto, Марко, Inblu, Keddo, Отико, Rieker, Алми, Эго, ID Collection, Laura Valorosa, Rosconi и др.
+			.news__item
+				strong.news__item-title Поступление весенне-летней коллекции.
+				i Уже на складе новые модели ТМ Cavaletto, Rieker, Keddo, Марко и др.!
+				b Обновление ассортимента 2-3 раза в неделю!
+	- if (p === true)
+		.news__list
+			.news__item
+				strong.news__item-title Сеть магазинов «Пятка»
+				i Комфортная кожаная обувь 
+					br
+					| по действительно низкой
+					br
+					| цене
+			.news__item
+				strong.news__item-title Распродажа в «Пятке»
+				i Скидки на бренды 
+				i INBLU, Marko,Ego  20%
+				a(href="#").news__item-link Смотреть все события
 	.news-slider
 		.news-slider__wrapper
 			.news-slider__image-box
