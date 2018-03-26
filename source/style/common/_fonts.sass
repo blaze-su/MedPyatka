@@ -1,7 +1,20 @@
-// @font-face
-//     font-family: 'RobotoRegular'
-//     src: url("../fonts/Fonts-Roboto/Roboto-Regular.ttf")
+@font-face
+   font-family: 'HelveticaL'
+   src: url("../fonts/HelveticaLight/HelveticaLight.ttf")
 
-// @mixin Roboto($style: regular)
-//     @if($style==regular)
-//         font-family: "RobotoRegular"
+@font-face
+   font-family: 'HelveticaB'
+   src: url("../fonts/HelveticaBold/HelveticaBold.ttf")
+
+@font-face
+   font-family: 'RobotoR'
+   src: url("../fonts/RobotoRegular/Roboto-Regular.ttf")
+
+@mixin Helvetica($style: light)
+   @if($style==light)
+      font-family: "HelveticaL"
+   @if($style==bold)
+      font-family: "HelveticaB"
+
+@mixin Roboto($style: regular)
+	font-family: "RobotoR"

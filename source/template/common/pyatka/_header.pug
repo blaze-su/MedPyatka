@@ -1,2 +1,11 @@
 block header
-    header.header
+	header.header
+		.container
+			a(href="/").logo__link
+				img(src="./assets/img/pyatka/logo.svg", alt="logotype").logo
+			form(action="" method="POST").header-search
+				input(type="text" placeholder="Поиск на сайте").header-search__input
+				button(type="submit").header-search__submit
+			.header-contacts
+				+svgMix("header-contacts__icon", "map-pointer", "p")
+				p.header-contacts__text Контакты

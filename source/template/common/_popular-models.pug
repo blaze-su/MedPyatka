@@ -1,20 +1,33 @@
 -
-	var popModels = [
-		{_new: true, src: 1, title: "Rosconi", subtitle: "Туфли мужские Alkv-27", price1: 750, price2: "7 500"},
-		{_new: false, src: 2, title: "Rosconi", subtitle: "Туфли мужские 214056", price1: 900, price2: "9 000"},
-		{_new: false, src: 3, title: "Kovaletto", subtitle: "Босоножки женские Akd-436", price1: 630, price2: "6 300"},
-		{_new: false, src: 4, title: "MenLine", subtitle: "Туфли мужские Eds-92", price1: 1000, price2: "12 000"},
-		{_new: false, src: 1, title: "Rosconi", subtitle: "Туфли мужские Alkv-27", price1: 750, price2: "7 500"},
-		{_new: false, src: 2, title: "Rosconi", subtitle: "Туфли мужские 214056", price1: 900, price2: "9 000"},
-		{_new: false, src: 3, title: "Kovaletto", subtitle: "Босоножки женские Akd-436", price1: 630, price2: "6 300"},
-		{_new: false, src: 4, title: "MenLine", subtitle: "Туфли мужские Eds-92", price1: 1000, price2: "12 000"}
-	]
+	if (m === true)
+		//- sale always == false
+		var popModels = [
+			{_new: true, src: 1, title: "Rosconi", subtitle: "Туфли мужские Alkv-27", price1: 750, price2: "7 500", sale: false},
+			{_new: false, src: 2, title: "Rosconi", subtitle: "Туфли мужские 214056", price1: 900, price2: "9 000", sale: false},
+			{_new: false, src: 3, title: "Kovaletto", subtitle: "Босоножки женские Akd-436", price1: 630, price2: "6 300", sale: false},
+			{_new: false, src: 4, title: "MenLine", subtitle: "Туфли мужские Eds-92", price1: 1000, price2: "12 000", sale: false},
+			{_new: false, src: 1, title: "Rosconi", subtitle: "Туфли мужские Alkv-27", price1: 750, price2: "7 500", sale: false},
+			{_new: false, src: 2, title: "Rosconi", subtitle: "Туфли мужские 214056", price1: 900, price2: "9 000", sale: false},
+			{_new: false, src: 3, title: "Kovaletto", subtitle: "Босоножки женские Akd-436", price1: 630, price2: "6 300", sale: false},
+			{_new: false, src: 4, title: "MenLine", subtitle: "Туфли мужские Eds-92", price1: 1000, price2: "12 000", sale: false}
+		]
+	if (p === true)
+		var popModels = [
+			{_new: true, src: 1, title: "Rosconi", subtitle: "Туфли мужские Alkv-27", price1: 5000, price2: "1000", sale: false},
+			{_new: false, src: 2, title: "Rosconi", subtitle: "Туфли мужские 214056", price1: 5000, price2: "1000", sale: false},
+			{_new: false, src: 3, title: "Kovaletto", subtitle: "Босоножки женские Akd-436", price1: 5000, price2: "1000", sale: true},
+			{_new: false, src: 4, title: "MenLine", subtitle: "Туфли мужские Eds-92", price1: 5000, price2: "1000", sale: true},
+			{_new: false, src: 1, title: "Rosconi", subtitle: "Туфли мужские Alkv-27", price1: 5000, price2: "1000", sale: false},
+			{_new: false, src: 2, title: "Rosconi", subtitle: "Туфли мужские 214056", price1: 5000, price2: "1000", sale: false},
+			{_new: false, src: 3, title: "Kovaletto", subtitle: "Босоножки женские Akd-436", price1: 5000, price2: "1000", sale: true},
+			{_new: false, src: 4, title: "MenLine", subtitle: "Туфли мужские Eds-92", price1: 5000, price2: "1000", sale: true}
+		]
 .models-slider.container
 	.models-slider__wrapper
 		.models-slider__list
 			each item in popModels
 				+product(item.title, item.subtitle,
 					"/assets/img/medisa/pop-models/" + item.src + ".png",
-					item.price1, item.price2, item._new)
+					item.price1, item.price2, item._new, item.sale)
 	button.btn.models-slider__btn.-next &rsaquo;
 	button.btn.models-slider__btn.-prev &lsaquo;

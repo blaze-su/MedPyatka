@@ -31,12 +31,25 @@
 	&__model
 		margin-bottom: 1.667rem
 	&__price
+		position: relative
+		&:before
+			position: absolute
+			content: ''
+			display: block
+			background-repeat: no-repeat
+			background-size: 100% 100%
+			left: 0
+			top: 50%
+			transform: translateY(-50%)
 		padding-left: 36px
 		margin-bottom: 0.5556rem
 		&:last-child
 			margin-bottom: 0
 		&-box
 			margin-bottom: 1.667rem
+			& > div b
+				margin-right: 6px
+				font-size: 1.111rem
 	&-basket
 		padding: 20px 47px 20px 20px
 		border-top: 1px solid $grey

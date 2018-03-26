@@ -32,6 +32,17 @@
 		margin-bottom: 1.667rem
 	&__price
 		margin-bottom: 0.5556rem
+		&-box
+			font-size: 1.333rem
+		&.-sale
+			& > b
+				+Roboto()
+				color: $product-grey
+				text-decoration: line-through
+				margin-right: 1.111rem
+			& > span
+				color: $sale-price !important
+				font-family: 'Helvetica'
 		&:last-child
 			margin-bottom: 0
 		&-box

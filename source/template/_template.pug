@@ -19,7 +19,10 @@ html
       link(rel='stylesheet' href='assets/css/p-style.css')
     //- link(rel='stylesheet' href='assets/css/foundation.css')
     //- script(src='assets/js/foundation.js')
-    script(src='assets/js/app.js')
+    if m === true
+      script(src='assets/js/app.js')
+    if p === true
+      script(src='assets/js/app-pyatka.js')
     //- <!--[if IE]><![endif]-->
     //- <!--[if lt IE 9]>
     //- script(src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
