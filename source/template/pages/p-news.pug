@@ -1,0 +1,22 @@
+extends ../_template
+
+block variables
+   - var p = true;
+
+block content
+   +breadCrumbs(["Главная", "События"])
+   main.container
+      h1.title События
+      -
+         var events = [
+            {date: '25.01.2018', title: 'Распродажа в Пятке. Скидки на бренды INBLU, Marko,Ego  20%.'},
+            {date: '05.01.2018', title: 'Распродажа в Пятке. Скидки на бренды INBLU, Marko,Ego  20%.'},
+            {date: '20.12.2017', title: 'Распродажа в Пятке. Скидки на бренды INBLU, Marko,Ego  20%.'},
+            {date: '13.11.2017', title: 'Распродажа в Пятке. Скидки на бренды INBLU, Marko,Ego  20%.'},
+            {date: '01.10.2017', title: 'Распродажа в Пятке. Скидки на бренды INBLU, Marko,Ego  20%.'},
+         ]
+      ul.events
+         each item in events
+            li.events__item
+               span.events__date= item.date
+               a(href="#").events__link= item.title

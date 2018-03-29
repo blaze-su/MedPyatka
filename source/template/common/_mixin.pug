@@ -110,7 +110,7 @@ mixin product-basket(imgSrc, half, error)
 			span 5 000 000 ₽
 		button.product-basket__delete Удалить
 
-mixin popup-index()
+mixin popup(index)
 	-
 		var address = [
 			{title: 'ул. Стасова 182/1', subTitle: 'район ХБК, территория «ТРК Меридиан»', days: 'Ежедневно', time: 'с 9:00 до 20:00', phone: ' 8 (861) 200-19-20'},
@@ -118,26 +118,50 @@ mixin popup-index()
 			{title: 'ул. Трудовой славы, 23/1', subTitle: 'ГМР, напротив кафе «Русь»', days: 'Ежедневно', time: 'с 9:00 до 20:00', phone: ' 8 (861) 266-85-55'},
 			{title: 'ул. Сормовская, 116/1', subTitle: 'КМР, напротив рынка', days: 'Ежедневно', time: 'с 9:00 до 20:00', phone: ' 8 (861) 232-09-08'}
 		]
-	.popup
-		.popup__inner
-			p.popup__title Контакты магазинов
-			button.popup__close-btn
-			.popup__grid
-				.popup__grid-head
-					.popup__grid-col Адрес магазина
-					.popup__grid-col Время работы
-					.popup__grid-col Телефон
-				.popup__grid-body
-					each item in address
-						.popup__grid-row
-							.popup__grid-col
-								p= item.title
-								=item.subTitle
-							.popup__grid-col
-								= item.days
-								br
-								= item.time
-							.popup__grid-col
-								| Тел.
-								span= item.phone
-			a.popup__map-link(href="#") Посмотреть на карте
+	if index === true
+		.popup.-index
+			.popup__inner
+				p.popup__title Контакты магазинов
+				button.popup__close-btn
+				.popup__grid
+					.popup__grid-head
+						.popup__grid-col Адрес магазина
+						.popup__grid-col Время работы
+						.popup__grid-col Телефон
+					.popup__grid-body
+						each item in address
+							.popup__grid-row
+								.popup__grid-col
+									p= item.title
+									=item.subTitle
+								.popup__grid-col
+									= item.days
+									br
+									= item.time
+								.popup__grid-col
+									| Тел.
+									span= item.phone
+				a.popup__map-link(href="#") Посмотреть на карте
+	else
+		.popup.-product
+			.popup__inner
+				p.popup__title Контакты магазинов
+				button.popup__close-btn
+				.popup__grid
+					.popup__grid-head
+						.popup__grid-col Адрес магазина
+						.popup__grid-col Время работы
+						.popup__grid-col Телефон
+					.popup__grid-body
+						each item in address
+							.popup__grid-row
+								.popup__grid-col
+									p= item.title
+									=item.subTitle
+								.popup__grid-col
+									= item.days
+									br
+									= item.time
+								.popup__grid-col
+									| Тел.
+									span= item.phone

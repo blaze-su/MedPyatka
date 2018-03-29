@@ -1,0 +1,74 @@
+extends ../_template
+
+block variables
+	- var p = true;
+
+block content
+	+breadCrumbs(["Главная", "Мужская обувь", "Туфли мужские", "Туфли мужские ХХХХХ"])
+	.cart.container
+		h1.title Туфли мужские ХХХХХХ
+
+		.cart__grid
+			+popup()
+			.cart__grid-overview
+				.cart__photo-box
+					img(src="/assets/img/medisa/product-cart/2.png", alt="name").cart__photo
+				.cart__preview-list
+					.cart__preview-item
+						img(src="/assets/img/medisa/product-cart/1.png", alt="name").cart__preview
+					.cart__preview-item
+						img(src="/assets/img/medisa/product-cart/2.png", alt="name").cart__preview
+					.cart__preview-item
+						img(src="/assets/img/medisa/product-cart/3.png", alt="name").cart__preview
+			.cart__grid-data
+				.cart-info
+					p.cart-info__price Цена 2 800 ₽
+					span.cart-info__vendor-code Артикул: ХХХХХХ
+					.cart-info__size
+						span.cart-info__size-title Выберите размер
+						.cart-info__size-list
+							each item, i in [38, 39, 40, 41, 42, 43, 44, 45]
+								if i == 4
+									a(href="").cart-info__size-numeral.-active= item
+								else
+									a(href="").cart-info__size-numeral= item
+						p.cart-info__presence Начичие в магизинах:&nbsp;
+							span в 5 магазинах
+
+				.cart__feature
+					.cart__feature-row
+						.cart__feature-col Брэнд  
+						.cart__feature-col Roskoni
+					.cart__feature-row
+						.cart__feature-col Артикул
+						.cart__feature-col XXXXXXX
+					.cart__feature-row
+						.cart__feature-col Вид обуви 
+						.cart__feature-col Туфли 
+					.cart__feature-row
+						.cart__feature-col Сезонность 
+						.cart__feature-col Зима
+					.cart__feature-row
+						.cart__feature-col Сегмент 
+						.cart__feature-col Мужские 
+					.cart__feature-row
+						.cart__feature-col Размерный ряд
+						.cart__feature-col 39-46
+					.cart__feature-row
+						.cart__feature-col Состав коробки
+						.cart__feature-col 9 пар
+					.cart__feature-row
+						.cart__feature-col Материал верха
+						.cart__feature-col Натуральная кожа
+					.cart__feature-row
+						.cart__feature-col Материал подкладки
+						.cart__feature-col Натуральный мех
+					.cart__feature-row
+						.cart__feature-col Страна-производитель
+						.cart__feature-col Россия 
+					.cart__feature-row
+						.cart__feature-col В наличии (нет в наличии)
+						.cart__feature-col Есть на складе
+	section.popular-models
+		h1.title Вы смотрели
+		include ./../common/_popular-models.pug

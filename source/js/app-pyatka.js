@@ -7,6 +7,8 @@ window.onload = () => {
   if ($.querySelector('.search')) search($.querySelector('.listing'));
   if ($.querySelector('.cart__grid-overview')) cartGalery();
   if  ($.querySelector('.go-top')) goTop();
+  if ($.querySelector('.header-contacts')) popup();
+  if ($.querySelector('.cart-info__presence')) popup();
 };
 
 var listingSort = block => {
@@ -33,9 +35,8 @@ var listingSort = block => {
       }
     }
   })
-};
-
-var listingFilter = () => {
+},
+listingFilter = () => {
   var option = $.querySelectorAll('.listing-filter__item-header');
   option.forEach(item => {
     item.onclick = e => {
@@ -45,9 +46,8 @@ var listingFilter = () => {
       item.classList.toggle('-open');
     }
   })
-};
-
-var search = block => {
+},
+search = block => {
   var option = $.querySelectorAll('.search-form__option');
   option.forEach(item => {
     item.onclick = e => {
@@ -72,9 +72,8 @@ var search = block => {
       }
     }
   })
-};
-
-var cartGalery = () => {
+},
+cartGalery = () => {
   var main = $.querySelector('.cart__photo');
   var preview = $.querySelectorAll('.cart__preview-item');
 
@@ -100,10 +99,27 @@ var cartGalery = () => {
       _active(e.target.parentElement);
     }
   }
-};
-
-var goTop = () => {
+},
+goTop = () => {
   $.querySelector('.go-top').onclick = () => {
     window.scrollTo(0, 0)
   }
+},
+popup = () => {
+  $.querySelector('.header-contacts').onclick = () => {
+    if ($.querySelector('.popup.-product.-show'))
+      $.querySelector('.popup.-product.-show').classList.remove('-show');
+    $.querySelector('.popup.-index').classList.toggle('-show');
+  };
+
+  // $.querySelector('.cart-info__presence').onclick = () => {
+  //   if ($.querySelectorAll('.popup.-show').length > 0)
+  //     $.querySelectorAll('.popup.-show').classList.toggle('-show');
+  //   $.querySelector('.popup.-product').classList.toggle('-show');
+  // };
+
+  $.querySelectorAll('.popup').onclick = (e) => {
+    if (e.target.classList.contains("popup__close-btn"))
+      e.target.parentElement.parentElement.classList.remove('-show');
+  };
 };

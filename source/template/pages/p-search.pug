@@ -1,0 +1,23 @@
+extends ../_template
+
+block variables
+   - var p = true;
+
+
+block content
+   +breadCrumbs(["Главная", "Поиск «Ботинки»"])
+   .catalog.container
+      h1.title Поиск «Ботинки»
+      block search
+         include ./../common/_search.pug         
+      .listing
+         .listing__grid-main.-full
+            block sort
+               include ./../common/_listing-controls.pug               
+            .listing__generated-container
+               +product-listing()
+            block pagination
+               include ./../common/_pagination.pug
+      .catalog-description
+         p.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat omnis recusandae illo, fugit repellat necessitatibus repudiandae accusantium, quasi qui autem officia deserunt ratione consequatur temporibus voluptatum veritatis numquam aliquid libero?

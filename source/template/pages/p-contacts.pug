@@ -1,0 +1,37 @@
+extends ../_template
+
+block variables
+	- var p = true;
+
+block content
+	+breadCrumbs(["Главная", "Контакты"])
+	main.contacts
+		.container
+			h1.title Контакты
+
+		.contacts-map__box
+			strong.contacts-map__title Карта
+			iframe.contacts-map(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17905.784856855553!2d39.03492539684073!3d45.025241615905216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f050079966f27d%3A0x871bfb6c78248905!2z0YPQuy4g0KHRgtCw0YHQvtCy0LAsIDE4Mi8xLCDQmtGA0LDRgdC90L7QtNCw0YAsINCa0YDQsNGB0L3QvtC00LDRgNGB0LrQuNC5INC60YDQsNC5LCDQoNC-0YHRgdC40Y8sIDM1MDA3NQ!5e0!3m2!1sru!2sua!4v1521471688405" frameborder="0" allowfullscreen)
+			//- https://yandex.ua/map-widget/v1/-/CBeXzVHJDA
+		
+		.container.our-shop
+			-
+				var shop = [
+					{id: 1, name: 'Пятка №1', address: 'г. Краснодар, ул. Стасова, 182/1 район ХБК, территория ТРК «Меридиан»', workTime: 'Ежедневно с 9:00 до 20:00', phone: ' 8 (861) 200-19-20'},
+					{id: 2, name: 'Пятка №2', address: 'г. Краснодар, ул. 40-лет Победы, 117 район Восточно-Кругликовской, напротив гипермаркета «Магнит»', workTime: 'Ежедневно с 9:00 до 20:00', phone: ' 8-918-18-168-94'},
+					{id: 3, name: 'Пятка №3', address: 'г. Краснодар, ул. Трудовой славы, 23/1 ГМР, напротив кафе «Русь»', workTime: 'Ежедневно с 9:00 до 20:00', phone: ' 8 (861) 266-85-55'},
+					{id: 4, name: 'Пятка №4', address: 'ул. Сормовская, 116/1 КМР напротив рынка', workTime: 'Ежедневно с 9:00 до 20:00', phone: ' 8 (861) 232-09-08'}
+				]
+			strong.our-shop__title Наши магазины
+			.our-shop__list
+				each item in shop
+					.our-shop__item
+						.our-shop__item-top
+							img(src="assets/img/pyatka/shops/"+item.id+".png", alt="").our-shop__item-img
+							p.our-shop__item-name= item.name
+							span.our-shop__item-address= item.address
+						.our-shop__item-bottom
+							span.our-shop__item-worktime= item.workTime
+							p.our-shop__item-phone 
+								span Тел.
+								= item.phone
