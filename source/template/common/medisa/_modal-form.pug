@@ -1,0 +1,86 @@
+block modal-form
+	//- стили убрать
+	.modal-bg(style="flex-wrap: wrap; align-content: flex-start")
+		//- form.modal-form
+		//-    p.modal-form__title Восстановление пароля
+		//-    .modal-form__main-area
+		//-       label.modal-form__item-group
+		//-          input.modal-form__input(placeholder="Почта")
+		//-       button.modal-form__submit(type="submit") Восстановить
+		//-    button.modal-form__close
+		
+		//- form.modal-form
+		//-    p.modal-form__af-submit На Вашу почту отправлен пароль от учетной записи.
+
+		//- form.modal-form
+		//-    p.modal-form__title Войти
+		//-    .modal-form__main-area
+		//-       label.modal-form__item-group
+		//-          input.modal-form__input(placeholder="Почта")
+		//-       label.modal-form__item-group
+		//-          input.modal-form__input(placeholder="Пароль" type="password")
+		//-       button.modal-form__submit(type="submit") Войти
+		//-    a(href="#").modal-form__link Регистрация нового пользователя
+		//-    button.modal-form__close
+
+		form.modal-form
+			p.modal-form__title Регистрация
+			.modal-form__main-area
+				label.modal-form__item-group
+					input.modal-form__input(placeholder="Имя" type="text")
+				label.modal-form__item-group
+					input.modal-form__input(placeholder="Почта" type="email")
+				label.modal-form__item-group
+					input.modal-form__input(type="text")#form-phone
+				label.modal-form__item-group
+					input.modal-form__input(placeholder="Имя" type="text")
+				label.modal-form__item-group
+					input.modal-form__input(placeholder="Придумайте пароль" type="password")
+				label.modal-form__item-group
+					input.modal-form__input(placeholder="Повторите пароль" type="password")
+				.modal-form__item-group.-check
+					label
+						input(type="checkbox")
+						| Подписаться на новости
+				.modal-form__item-group.-check
+					label
+						input(type="checkbox")
+						| Согласен на обработку персональных данных
+					a(href="#").modal-form__agreement Посмотреть соглашение
+
+				button.modal-form__submit(type="submit") Войти
+			button.modal-form__close
+
+		//- form.modal-form
+		//-    p.modal-form__title Регистрация
+		//-    .modal-form__main-area
+		//-       label.modal-form__item-group.-error
+		//-          input.modal-form__input(placeholder="Имя" type="text")
+		//-          span Это поле необходимо заполнить
+		//-       label.modal-form__item-group.-error
+		//-          input.modal-form__input(placeholder="Почта" type="email")
+		//-          span Это поле необходимо заполнить
+		//-       label.modal-form__item-group.-error
+		//-          input.modal-form__input(type="text")#form-phone
+		//-          span Это поле необходимо заполнить
+		//-       label.modal-form__item-group.-error
+		//-          input.modal-form__input(placeholder="Имя" type="text")
+		//-          span Это поле необходимо заполнить
+		//-       label.modal-form__item-group.-error
+		//-          input.modal-form__input(placeholder="Придумайте пароль" type="password")
+		//-          span Это поле необходимо заполнить
+		//-       label.modal-form__item-group.-error
+		//-          input.modal-form__input(placeholder="Повторите пароль" type="password")
+		//-          span Это поле необходимо заполнить
+		//-       .modal-form__item-group.-check
+		//-          label
+		//-             input(type="checkbox")
+		//-             | Подписаться на новости
+		//-       .modal-form__item-group.-check
+		//-          label
+		//-             input(type="checkbox")
+		//-             | Согласен на обработку персональных данных
+		//-          a(href="#").modal-form__agreement Посмотреть соглашение
+
+		//-       button.modal-form__submit(type="submit") Войти
+		//-    button.modal-form__close

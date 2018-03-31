@@ -6,9 +6,11 @@ window.onload = () => {
   if ($.querySelector('.listing-filter')) listingFilter();
   if ($.querySelector('.search')) search($.querySelector('.listing'));
   if ($.querySelector('.cart__grid-overview')) cartGalery();
-  if  ($.querySelector('.go-top')) goTop();
-  if ($.querySelector('.header-contacts')) popup();
-  if ($.querySelector('.cart-info__presence')) popup();
+  if ($.querySelector('.go-top')) goTop();
+  if ($.querySelector('.header-contacts'))
+    $.querySelector('.header-contacts').onclick = () => popup('contacts');
+  if ($.querySelector('.cart-info__presence'))
+    $.querySelector('.cart-info__presence').onclick = () => popup('contacts');
 };
 
 var listingSort = block => {
@@ -105,21 +107,22 @@ goTop = () => {
     window.scrollTo(0, 0)
   }
 },
-popup = () => {
-  $.querySelector('.header-contacts').onclick = () => {
+popup = (target) => {
+  if (target == 'contacts') {
     if ($.querySelector('.popup.-product.-show'))
       $.querySelector('.popup.-product.-show').classList.remove('-show');
-    $.querySelector('.popup.-index').classList.toggle('-show');
-  };
+    $.querySelector('.popup.-contacts').classList.toggle('-show');
+  }
 
-  // $.querySelector('.cart-info__presence').onclick = () => {
-  //   if ($.querySelectorAll('.popup.-show').length > 0)
-  //     $.querySelectorAll('.popup.-show').classList.toggle('-show');
-  //   $.querySelector('.popup.-product').classList.toggle('-show');
-  // };
+  if (target == 'product') {
+    if ($.querySelector('.popup.-contacts.-show'))
+      $.querySelector('.popup.-product.-show').classList.remove('-show');
+    $.querySelector('.popup.-product').classList.add('-show');
+  }
 
-  $.querySelectorAll('.popup').onclick = (e) => {
-    if (e.target.classList.contains("popup__close-btn"))
-      e.target.parentElement.parentElement.classList.remove('-show');
-  };
+  if ($.querySelector('.popup.-show')) {
+    $.querySelector('.popup.-show').querySelector('.popup__close-btn').onclick = () => {
+      $.querySelector('.popup.-show').classList.remove('-show');
+    };
+  }
 };

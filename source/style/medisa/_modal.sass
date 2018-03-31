@@ -1,0 +1,102 @@
+.modal
+	&-bg
+		display: none
+		position: absolute
+		z-index: 10000
+		background-color: rgba(#d8d8d8, .6)
+		width: 100vw
+		min-height: 100vh
+		height: 100%
+		// display: flex
+		align-items: flex-start
+		padding-top: 40px
+	&-form
+		max-width: 759px
+		width: 100%
+		padding: 20px 20px 35px
+		background-color: $white
+		margin: 0 auto 15px
+		position: relative
+		border: 1px solid $grey
+		min-height: 230px
+		& > *
+			margin-left: auto
+			margin-right: auto
+		&__title
+			font-size: 1.333rem
+			margin-bottom: 1.5em
+			text-align: center
+		&__main-area
+			max-width: 500px
+			width: 100%
+		&__item-group
+			margin-bottom: 2.222rem
+			display: block
+			& input
+				font-family: Helvetica
+				font-size: 1rem
+			&.-check
+				margin-top: 1.667rem
+				margin-bottom: 0
+				+Helvetica()
+				& > label
+					cursor: pointer
+					user-select: none
+					& > input
+						width: 20px
+						height: 20px
+						margin: 0 20px 0 0
+						vertical-align: middle
+			&.-error
+				position: relative
+				& > input
+					border-color: $error
+				& span
+					left: 0
+					bottom: -10px
+					transform: translateY(100%)
+					font-size: 0.8889rem
+					margin-left: 1.667rem
+					position: absolute
+					color: $error
+					+Helvetica()
+		&__input
+			color: #818181
+			border-radius: 5px
+			border: solid 1px #a8a8a8
+			width: 100%
+			height: 3.333rem
+			padding: 0 1.667rem
+		&__submit
+			min-width: 220px
+			background-color: $yellow
+			padding: 0.65em 0.8em
+			margin: 2.778rem auto 0
+			font-size: 1.111rem
+		&__close
+			position: absolute
+			background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ4OS44IDQ4OS44IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0ODkuOCA0ODkuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik00MzguMiwwSDUxLjZDMjMuMSwwLDAsMjMuMiwwLDUxLjZ2Mzg2LjZjMCwyOC41LDIzLjIsNTEuNiw1MS42LDUxLjZoMzg2LjZjMjguNSwwLDUxLjYtMjMuMiw1MS42LTUxLjZWNTEuNiAgICBDNDg5LjgsMjMuMiw0NjYuNiwwLDQzOC4yLDB6IE00NjUuMyw0MzguMmMwLDE0LjktMTIuMiwyNy4xLTI3LjEsMjcuMUg1MS42Yy0xNC45LDAtMjcuMS0xMi4yLTI3LjEtMjcuMVY1MS42ICAgIGMwLTE0LjksMTIuMi0yNy4xLDI3LjEtMjcuMWgzODYuNmMxNC45LDAsMjcuMSwxMi4yLDI3LjEsMjcuMVY0MzguMnoiIGZpbGw9IiM4MjgyODIiLz4KCQk8cGF0aCBkPSJNMzE5LDE3MC44Yy00LjgtNC44LTEyLjUtNC44LTE3LjMsMGwtNTYuOCw1Ni44bC01Ni44LTU2LjhjLTQuOC00LjgtMTIuNS00LjgtMTcuMywwcy00LjgsMTIuNSwwLDE3LjNsNTYuOCw1Ni44ICAgIGwtNTYuOCw1Ni44Yy00LjgsNC44LTQuOCwxMi41LDAsMTcuM2MyLjQsMi40LDUuNSwzLjYsOC43LDMuNnM2LjMtMS4yLDguNy0zLjZsNTYuOC01Ni44bDU2LjgsNTYuOGMyLjQsMi40LDUuNSwzLjYsOC43LDMuNiAgICBzNi4zLTEuMiw4LjctMy42YzQuOC00LjgsNC44LTEyLjUsMC0xNy4zbC01Ny01Ni44bDU2LjgtNTYuOEMzMjMuOCwxODMuMywzMjMuOCwxNzUuNiwzMTksMTcwLjh6IiBmaWxsPSIjODI4MjgyIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==)
+			width: 40px
+			height: 40px
+			background-size: 100% 100%
+			background-repeat: no-repeat
+			right: 20px
+			top: 20px
+		&__af-submit
+			width: calc(100% - 40px)
+			text-align: center
+			font-size: 1.333rem
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+		&__link
+			text-decoration: underline
+			margin-top: 1.389rem
+			display: block
+			width: max-content
+		&__agreement
+			width: max-content
+			margin-top: 10px
+			margin-left: 40px
+			text-decoration: underline
