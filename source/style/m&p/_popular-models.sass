@@ -1,11 +1,21 @@
 .popular-models
 	padding-bottom: 5.556rem
+	@media all and (min-width: 389px) and (max-width: 1024px)
+		padding-bottom: 2.778rem
 	& h1.title
 		text-align: center
 
 .models-slider
 	position: relative
-	width: 100%		
+	width: 100%
+	@media all and (max-width: 1259px)
+		max-width: 910px
+	@include w1024
+		max-width: 890px
+	@media all and (max-width: 969px)
+		max-width: 600px
+	@media all and (max-width: 679px)
+		max-width: 310px
 	&__wrapper
 		overflow: hidden
 	&__list
@@ -16,11 +26,24 @@
 		height: 40px
 		border: solid 1px $grey
 		top: 50%
-		transform: translateY(-50%)
 		border-radius: 5px
 		font-size: 27px
 		color: $product-grey
+		@media all and (max-width: 389px)
+			top: 100%
+			transform: none !important
+			margin-top: 30px
 		&.-next
-			right: 0
+			right: -10px
+			transform: translate(50%, -50%)
+			@include w1024
+				right: -20px
+			@media all and (max-width: 389px)
+				right: 25%
 		&.-prev
-			left: 0
+			left: -10px
+			transform: translate(-50%, -50%)
+			@include w1024
+				left: -20px
+			@media all and (max-width: 389px)
+				left: 25%

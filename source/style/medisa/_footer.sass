@@ -2,12 +2,20 @@
 	color: $white
 	padding: 30px 0 40px
 	background-color: $main
+	@include w1023
+		margin-bottom: 20px
 	&-site
 		max-width: 25%
 		width: 100%
 		padding-left: 20px
 		display: flex
 		align-items: center
+		@include w1023
+			max-width: 100%
+			margin-bottom: 25px
+		@media all and (max-width: 519px)
+			justify-content: center
+			padding-left: 0
 		&__name
 			font-size: 1rem
 			color: rgba(255, 255, 255, 1)
@@ -24,14 +32,38 @@
 		max-width: 75%
 		width: 100%
 		display: flex
+		@media all and (max-width: 1199px)
+			justify-content: space-between
+		@include w1023
+			max-width: 100%
+		@include w767
+			flex-direction: column
+		@media all and (max-width: 519px)
+			align-items: center
 		&__col
 			padding-left: 20px
 			flex-basis: 33%
 			max-width: 33%
+			@media all and (max-width: 1199px)
+				flex-basis: auto
+				max-width: 280px
+				width: max-content
+			@include w1023
+				font-size: 17px
+			@include w767
+				margin-top: 40px
+				&:first-child
+					margin-top: 10px
+			@media all and (max-width: 519px)
+				text-align: center
+				padding-left: 0
 		&__header
 			font-size: 1.333rem
 			margin-bottom: 1.250em
 			opacity: 0.8
+			@include w1023
+				margin-bottom: 0.8em
+				font-size: 1.2rem
 		&__list
 		&__item
 			& > p, a
@@ -44,13 +76,33 @@
 			display: flex
 			flex-wrap: wrap
 			align-items: flex-start
+			@include w1023
+				margin-bottom: 40px
+			@include w767
+				flex-wrap: nowrap
+				flex-direction: row-reverse
+			@media all and (max-width: 519px)
+				flex-direction: column
 		&__bottom
 			display: flex
 			justify-content: space-between
-			margin: 0 auto
+			margin: 0 auto 0 100px
 			max-width: 985px
-			margin-left: 100px
+			@media all and (max-width: 1199px)
+				margin-left: 0
+				max-width: 100%
+				justify-content: space-evenly
+			@include w1023
+				flex-direction: column
+				font-size: 17px
+			@media all and (max-width: 439px)
+				font-size: 15px
 			& p
 				opacity: 0.8
 				text-align: center
 				line-height: 1.88
+				@media all and (max-width: 439px)
+					line-height: 1.2
+					margin-bottom: 15px
+					&:last-child
+						margin-bottom: 0

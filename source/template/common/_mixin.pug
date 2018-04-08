@@ -27,13 +27,13 @@ mixin product(name, model, imgSrc, dual_price, corob_price, _new, sale)
 			.product__review
 				strong.product__name= name
 				p.product__model= model
-				.product__price-box
-					.product__price.-pair
-						b= dual_price + " ₽"
-						| за пару
-					.product__price.-box
-						b= corob_price + " ₽"
-						| за короб
+			.product__price-box
+				.product__price.-pair
+					b= dual_price + " ₽"
+					| за пару
+				.product__price.-box
+					b= corob_price + " ₽"
+					| за короб
 			a(href="#").btn.product__more Подробнее
 	if p === true
 		.product
@@ -45,13 +45,13 @@ mixin product(name, model, imgSrc, dual_price, corob_price, _new, sale)
 			.product__review
 				strong.product__name= name
 				p.product__model= model
-				.product__price-box
-					if (sale === true)
-						.product__price.-sale
-							b= dual_price + " ₽"
-							span= corob_price + " ₽"
-					else
-						b 500 ₽
+			.product__price-box
+				if (sale === true)
+					.product__price.-sale
+						b= dual_price + " ₽"
+						span= corob_price + " ₽"
+				else
+					b 500 ₽
 						
 			a(href="#").btn.product__more Подробнее
 

@@ -7,8 +7,35 @@
 		justify-content: space-between
 	&__item
 		height: 50px
+		margin-left: 20px
 		display: flex
 		align-items: center
+		&.-hidden
+			display: none
+		&:first-child
+			margin-left: 0
+		&:last-child
+			position: relative
+			&.-hidden
+				display: block
+				visibility: hidden
+			&:hover
+				& > .nav-remainder
+					display: block
 		&-link
+			white-space: nowrap
 			&:hover
 				text-decoration: underline
+	&-remainder
+		border-top: 1px solid white
+		position: absolute
+		width: max-content
+		top: 100%
+		background-color: $main
+		z-index: 10000
+		right: 0
+		display: none
+		&__item
+			padding: 10px 15px
+			&.-hidden
+				display: none

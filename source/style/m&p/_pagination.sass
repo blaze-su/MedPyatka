@@ -1,54 +1,78 @@
 .pagination
-   display: flex
-   align-items: center
-   color: $product-grey
-   max-width: 510px
-   &__controls
-      margin-bottom: 3.889rem
-      display: flex
-      justify-content: space-between
-      max-width: 855px
-      position: relative
-      left: 100%
-      transform: translateX(-100%)
-   & > li
-      margin: 0 5px
-      &.-active
-         border: 1px solid $product-grey
-         border-radius: 50%
-         width: 50px
-         height: 50px
-         & > span
-            width: 100%
-            height: 100%
-            display: block
-            text-align: center
-            line-height: 50px
-      &-triplet
-      & > a         
-         width: 50px
-         height: 50px
-         text-align: center
-         line-height: 50px
-      &:first-child, &:last-child
-         background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDMwNy4wNDYgMzA3LjA0NiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzA3LjA0NiAzMDcuMDQ2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGcgaWQ9Il94MzRfODQuX0ZvcndhcmQiPgoJCTxnPgoJCQk8cGF0aCBkPSJNMjM5LjA4NywxNDIuNDI3TDEwMS4yNTksNC41OTdjLTYuMTMzLTYuMTI5LTE2LjA3My02LjEyOS0yMi4yMDMsMEw2Ny45NTUsMTUuNjk4Yy02LjEyOSw2LjEzMy02LjEyOSwxNi4wNzYsMCwyMi4yMDEgICAgIGwxMTUuNjIxLDExNS42MjZMNjcuOTU1LDI2OS4xMzVjLTYuMTI5LDYuMTM2LTYuMTI5LDE2LjA4NiwwLDIyLjIwOWwxMS4xMDEsMTEuMTAxYzYuMTMsNi4xMzYsMTYuMDcsNi4xMzYsMjIuMjAzLDAgICAgIGwxMzcuODI4LTEzNy44MzFDMjQ1LjIyMiwxNTguNDg3LDI0NS4yMjIsMTQ4LjU1NiwyMzkuMDg3LDE0Mi40Mjd6IiBmaWxsPSIjNjE2MTYxIi8+CgkJPC9nPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=)
-         background-repeat: no-repeat
-         background-size: 15px
-         background-position: center
-         & > a
-            width: 10px
-            height: 15px
-      &:first-child
-         transform: rotate(180deg)
-      &:last-child
+	display: flex
+	align-items: center
+	color: $product-grey
+	max-width: 510px
+	@include w1023
+		margin: auto
+	@media all and (max-width: 685px)
+		max-width: 100%
+		width: 100%
+		justify-content: center
+	&__controls
+		margin-bottom: 3.889rem
+		display: flex
+		justify-content: space-between
+		max-width: 855px
+		position: relative
+		left: 100%
+		transform: translateX(-100%)
+		@include w1023
+			transform: none
+			left: 0
+			max-width: 100%
+		@media all and (max-width: 685px)
+			flex-wrap: wrap
+			justify-content: flex-end
+			padding: 0 10px
+			margin-left: auto
+			margin-right: auto
+		@media all and (max-width: 550px)
+			padding: 0
+		@media all and (max-width: 464px)
+			justify-content: center
+	& > li
+		margin: 0 5px
+		&.-active
+			border: 1px solid $product-grey
+			border-radius: 50%
+			width: 50px
+			height: 50px
+			@media all and (max-width: 540px)
+				margin: 0 15px
+			& > span
+				width: 100%
+				height: 100%
+				display: block
+				text-align: center
+				line-height: 50px
+		&-triplet
+		& > a         
+			width: 50px
+			height: 50px
+			text-align: center
+			line-height: 50px
+		&:first-child, &:last-child
+			background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDMwNy4wNDYgMzA3LjA0NiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzA3LjA0NiAzMDcuMDQ2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGcgaWQ9Il94MzRfODQuX0ZvcndhcmQiPgoJCTxnPgoJCQk8cGF0aCBkPSJNMjM5LjA4NywxNDIuNDI3TDEwMS4yNTksNC41OTdjLTYuMTMzLTYuMTI5LTE2LjA3My02LjEyOS0yMi4yMDMsMEw2Ny45NTUsMTUuNjk4Yy02LjEyOSw2LjEzMy02LjEyOSwxNi4wNzYsMCwyMi4yMDEgICAgIGwxMTUuNjIxLDExNS42MjZMNjcuOTU1LDI2OS4xMzVjLTYuMTI5LDYuMTM2LTYuMTI5LDE2LjA4NiwwLDIyLjIwOWwxMS4xMDEsMTEuMTAxYzYuMTMsNi4xMzYsMTYuMDcsNi4xMzYsMjIuMjAzLDAgICAgIGwxMzcuODI4LTEzNy44MzFDMjQ1LjIyMiwxNTguNDg3LDI0NS4yMjIsMTQ4LjU1NiwyMzkuMDg3LDE0Mi40Mjd6IiBmaWxsPSIjNjE2MTYxIi8+CgkJPC9nPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=)
+			background-repeat: no-repeat
+			background-size: 15px
+			background-position: center
+			& > a
+				width: 10px
+				height: 15px
+		&:first-child
+			transform: rotate(180deg)
+		&:last-child
 
 .go-top
-   width: 50px
-   height: 50px
-   background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDMwNy4wNDYgMzA3LjA0NiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzA3LjA0NiAzMDcuMDQ2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGcgaWQ9Il94MzRfODQuX0ZvcndhcmQiPgoJCTxnPgoJCQk8cGF0aCBkPSJNMjM5LjA4NywxNDIuNDI3TDEwMS4yNTksNC41OTdjLTYuMTMzLTYuMTI5LTE2LjA3My02LjEyOS0yMi4yMDMsMEw2Ny45NTUsMTUuNjk4Yy02LjEyOSw2LjEzMy02LjEyOSwxNi4wNzYsMCwyMi4yMDEgICAgIGwxMTUuNjIxLDExNS42MjZMNjcuOTU1LDI2OS4xMzVjLTYuMTI5LDYuMTM2LTYuMTI5LDE2LjA4NiwwLDIyLjIwOWwxMS4xMDEsMTEuMTAxYzYuMTMsNi4xMzYsMTYuMDcsNi4xMzYsMjIuMjAzLDAgICAgIGwxMzcuODI4LTEzNy44MzFDMjQ1LjIyMiwxNTguNDg3LDI0NS4yMjIsMTQ4LjU1NiwyMzkuMDg3LDE0Mi40Mjd6IiBmaWxsPSIjNjE2MTYxIi8+CgkJPC9nPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=)
-   background-repeat: no-repeat
-   background-size: 15px
-   background-position: center
-   border: solid 0.5px $product-grey
-   border-radius: 50%
-   transform: rotate(-90deg)
+	width: 50px
+	height: 50px
+	background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDMwNy4wNDYgMzA3LjA0NiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzA3LjA0NiAzMDcuMDQ2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGcgaWQ9Il94MzRfODQuX0ZvcndhcmQiPgoJCTxnPgoJCQk8cGF0aCBkPSJNMjM5LjA4NywxNDIuNDI3TDEwMS4yNTksNC41OTdjLTYuMTMzLTYuMTI5LTE2LjA3My02LjEyOS0yMi4yMDMsMEw2Ny45NTUsMTUuNjk4Yy02LjEyOSw2LjEzMy02LjEyOSwxNi4wNzYsMCwyMi4yMDEgICAgIGwxMTUuNjIxLDExNS42MjZMNjcuOTU1LDI2OS4xMzVjLTYuMTI5LDYuMTM2LTYuMTI5LDE2LjA4NiwwLDIyLjIwOWwxMS4xMDEsMTEuMTAxYzYuMTMsNi4xMzYsMTYuMDcsNi4xMzYsMjIuMjAzLDAgICAgIGwxMzcuODI4LTEzNy44MzFDMjQ1LjIyMiwxNTguNDg3LDI0NS4yMjIsMTQ4LjU1NiwyMzkuMDg3LDE0Mi40Mjd6IiBmaWxsPSIjNjE2MTYxIi8+CgkJPC9nPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=)
+	background-repeat: no-repeat
+	background-size: 15px
+	background-position: center
+	border: solid 0.5px $product-grey
+	border-radius: 50%
+	transform: rotate(-90deg)
+	@media all and (max-width: 685px)
+		margin-top: 2.778rem

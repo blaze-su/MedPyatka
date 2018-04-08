@@ -11,6 +11,8 @@ window.onload = () => {
     $.querySelector('.header-contacts').onclick = () => popup('contacts');
   if ($.querySelector('.cart-info__presence'))
     $.querySelector('.cart-info__presence').onclick = () => popup('contacts');
+  if ($.querySelector('.pagination')) pagination();
+  if ($.querySelector('.listing-filter__control')) filterShow();
 };
 
 var listingSort = block => {
@@ -100,6 +102,33 @@ cartGalery = () => {
       main.setAttribute('src', e.target.getAttribute('src'));
       _active(e.target.parentElement);
     }
+  }
+},
+filterShow = () => {
+  $.querySelector('.listing-filter__control').onclick = () => {
+    $.querySelector('.listing-filter').classList.toggle("-show");
+  }
+},
+pagination = () => {
+  var _hidden = () => {
+    $.querySelector('.pagination').querySelectorAll("li").forEach(item => {
+      if (!item.hasAttribute("class") && item.children[0].innerHTML != '...')
+        item.style.display = "none";
+    })
+  };
+
+  var _show = () => {
+    $.querySelector('.pagination').querySelectorAll("li").forEach(item => {
+      if (item.style.display == "none")
+        item.removeAttribute("style");
+    })
+  };
+
+  if (document.body.clientWidth < 540) _hidden();
+
+  window.onresize = () => {
+    if (document.body.clientWidth < 540) _hidden();
+    else _show();
   }
 },
 goTop = () => {

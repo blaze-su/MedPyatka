@@ -1,29 +1,35 @@
 nav.nav
-   .container
-      -
-         if (m === true)
-            var nav = [
-               {title: 'Каталог', link: 'm-catalog'},
-               {title: 'Мужская обувь', link: '#'},
-               {title: 'Женская обувь', link: '#'},
-               {title: 'Детская обувь', link: '#'},
-               {title: 'Спортивная обувь', link: '#'},
-               {title: 'Спец обувь', link: '#'},
-               {title: 'Домашная обувь', link: '#'},
-               {title: 'Для департаментов и организаций', link: '#'}
-            ]
-         if (p === true)
-            var nav = [
-               {title: 'Каталог', link: '#'},
-               {title: 'Мужская обувь', link: '#'},
-               {title: 'Женская обувь', link: '#'},
-               {title: 'Детская обувь', link: '#'},
-               {title: 'Спортивная обувь', link: '#'},
-               {title: 'Домашная обувь', link: '#'},
-               {title: 'Сумки', link: '#'},
-               {title: 'Товары со скидкой', link: '#'}
-            ]
-      ul.nav__list
-         each item in nav
-            li.nav__item
-               a(href= item.link + ".html").nav__item-link= item.title
+	.container
+		-
+			if (m === true)
+				var nav = [
+					{title: 'Каталог', link: 'm-catalog'},
+					{title: 'Мужская обувь', link: '#'},
+					{title: 'Женская обувь', link: '#'},
+					{title: 'Детская обувь', link: '#'},
+					{title: 'Спортивная обувь', link: '#'},
+					{title: 'Спец обувь', link: '#'},
+					{title: 'Домашная обувь', link: '#'},
+					{title: 'Для департаментов и организаций', link: '#'}
+				]
+			if (p === true)
+				var nav = [
+					{title: 'Каталог', link: '#'},
+					{title: 'Мужская обувь', link: '#'},
+					{title: 'Женская обувь', link: '#'},
+					{title: 'Детская обувь', link: '#'},
+					{title: 'Спортивная обувь', link: '#'},
+					{title: 'Домашная обувь', link: '#'},
+					{title: 'Сумки', link: '#'},
+					{title: 'Товары со скидкой', link: '#'}
+				]
+		ul.nav__list
+			each item in nav
+				li.nav__item.-hidden
+					a(href= item.link + ".html").nav__item-link= item.title
+			li.nav__item.-hidden
+				a(href="javascript:void(0);").nav__item-link Ещё...
+				ul.nav-remainder
+					each item in nav
+						li.nav-remainder__item.-hidden
+							a(href= item.link + ".html").nav-remainder__item-link= item.title

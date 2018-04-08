@@ -1,7 +1,15 @@
 ;
 var $ = document;
 
+// if (moreCell && rightCell) {
+//   document.addEventListener('DOMContentLoaded', function() {
+//     setTimeout(recountCells, 0);
+//   });
+//   window.addEventListener('resize', recountCells);
+// }
+
 window.onload = () => {
+  if ($.querySelector('.nav__list')) navMenu();
   if ($.querySelector('.control-sort')) listingSort($.querySelector('.listing__generated-container'));
   if ($.querySelector('.listing-filter')) listingFilter();
   if ($.querySelector('.search')) search($.querySelector('.listing'));
@@ -9,6 +17,78 @@ window.onload = () => {
   if ($.querySelector('.go-top')) goTop();
   if ($.querySelector('.news-slider')) siema();
   if ($.getElementById('form-phone')) phoneMask();
+  if ($.querySelector('.pagination')) pagination();
+  if ($.querySelector('.listing-filter__control')) filterShow();
+};
+
+var navMenu = () => {
+  var nav = $.querySelector('.nav__list'),
+    navItems = nav.querySelectorAll('.nav__item'),
+    navRemItems = $.querySelectorAll('.nav-remainder__item'),
+    length,
+    lengths = [], //sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+    maxLength = nav.offsetWidth - 20 - navItems[navItems.length - 1].offsetWidth,
+    hidden = "-hidden";
+
+  var main = (resize) => {
+    if (resize === false) {
+      navItems[0].classList.remove(hidden);
+      length = -20 + navItems[0].offsetWidth;
+      navItems[0].classList.add(hidden);
+    }
+    else length = -20;
+
+    var _innerMain = (item, i) => {
+      length += item.offsetWidth + 20;
+      if (length > maxLength) {
+        for (let j = i; j < navItems.length - 1; j++) {
+          if (!navItems[j].classList.contains(hidden)) {
+            navItems[j].classList.add(hidden);
+            navRemItems.forEach(itemRem => {
+              if (itemRem.querySelector('a').innerHTML == navItems[j].querySelector('a').innerHTML 
+                && itemRem.querySelector('a').getAttribute('href') == navItems[j].querySelector('a').getAttribute('href') 
+                && itemRem.classList.contains(hidden)) {
+                itemRem.classList.remove(hidden);
+              }
+            })
+          }
+          else return
+        }
+      }
+      else
+      {
+        for (let j = i; j < navItems.length - 1; j++) {
+          if (navItems[j].classList.contains(hidden)) {
+            navItems[j].classList.remove(hidden);
+            navRemItems.forEach(itemRem => {
+              if (itemRem.querySelector('a').innerHTML == navItems[j].querySelector('a').innerHTML 
+                && itemRem.querySelector('a').getAttribute('href') == navItems[j].querySelector('a').getAttribute('href') 
+                && !itemRem.classList.contains(hidden)) {
+                itemRem.classList.add(hidden);
+              }
+            })
+          }
+          else return
+        }
+      }
+    };
+
+    navItems.forEach((item, i) => {
+      if (resize === false) {
+        if (i !== navItems.length - 1) _innerMain(item, i);
+        if (navItems[navItems.length - 1].classList.contains(hidden)) navItems[navItems.length - 1].classList.remove(hidden);
+      }
+      if (resize === true) {
+        maxLength = nav.offsetWidth - 20 - navItems[navItems.length - 1].offsetWidth;
+      }
+    });
+  };
+
+  main(false);
+
+  window.addEventListener("resize", () => {
+    main(true);
+  });
 };
 
 var listingSort = block => {
@@ -101,6 +181,35 @@ var cartGalery = () => {
       main.setAttribute('src', e.target.getAttribute('src'));
       _active(e.target.parentElement);
     }
+  }
+};
+
+var filterShow = () => {
+  $.querySelector('.listing-filter__control').onclick = () => {
+    $.querySelector('.listing-filter').classList.toggle("-show");
+  }
+};
+
+var pagination = () => {
+  var _hidden = () => {
+    $.querySelector('.pagination').querySelectorAll("li").forEach(item => {
+      if (!item.hasAttribute("class") && item.children[0].innerHTML != '...')
+        item.style.display = "none";
+    })
+  };
+
+  var _show = () => {
+    $.querySelector('.pagination').querySelectorAll("li").forEach(item => {
+      if (item.style.display == "none")
+        item.removeAttribute("style");
+    })
+  };
+
+  if (document.body.clientWidth < 540) _hidden();
+
+  window.onresize = () => {
+    if (document.body.clientWidth < 540) _hidden();
+    else _show();
   }
 };
 

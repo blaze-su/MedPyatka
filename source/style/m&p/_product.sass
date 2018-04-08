@@ -4,6 +4,9 @@
 	width: 100%
 	border: solid 1px $grey
 	+Helvetica()
+	font-size: 18px
+	display: flex
+	flex-direction: column
 	&:hover
 		& *
 			color: $black !important
@@ -21,11 +24,14 @@
 	&__img
 		width: auto
 		height: auto
+	&__review
+		width: 100%
+		flex: 1
 	&__name
-		font-size: 1.111rem
+		font-size: 1.111em
 		color: $product-black
 	&__model
-		font-size: 0.9444rem
+		font-size: 0.9444em
 		color: $product-grey
 	&__more
 		font-size: 0.8889rem
