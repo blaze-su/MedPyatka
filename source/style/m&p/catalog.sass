@@ -29,6 +29,15 @@
 				max-width: 100%
 			&.-full
 				max-width: 100%
+				& .product
+					max-width: 25%
+					@media all and (max-width: 907px)
+						max-width: calc(100% / 3)
+					@media all and (max-width: 685px)
+						max-width: 290px
+					@media all and (max-width: 539px)
+						margin-bottom: 20px
+
 	&__controls
 		justify-content: flex-end
 		display: flex

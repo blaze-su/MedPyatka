@@ -25,10 +25,11 @@ nav.nav
 				]
 		ul.nav__list
 			each item in nav
-				li.nav__item.-hidden
+				li.nav__item.-visible
 					a(href= item.link + ".html").nav__item-link= item.title
-			li.nav__item.-hidden
+			li.nav__item.-visible
 				a(href="javascript:void(0);").nav__item-link Ещё...
+				//- нужно продублировать всё меню в таком же порядке кроме последнего элемента "ещё".
 				ul.nav-remainder
 					each item in nav
 						li.nav-remainder__item.-hidden

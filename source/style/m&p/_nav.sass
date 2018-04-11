@@ -12,13 +12,12 @@
 		align-items: center
 		&.-hidden
 			display: none
+		&.-visible
+			visibility: hidden
 		&:first-child
 			margin-left: 0
 		&:last-child
 			position: relative
-			&.-hidden
-				display: block
-				visibility: hidden
 			&:hover
 				& > .nav-remainder
 					display: block
@@ -27,15 +26,19 @@
 			&:hover
 				text-decoration: underline
 	&-remainder
-		border-top: 1px solid white
 		position: absolute
+		max-width: 318px
 		width: max-content
 		top: 100%
 		background-color: $main
 		z-index: 10000
-		right: 0
+		right: -9px
 		display: none
+		@media all and (max-width: 320px)
+			width: 100vw
 		&__item
-			padding: 10px 15px
+			border-top: 1px solid white
+			padding: 15px
+			line-height: 1.3
 			&.-hidden
 				display: none

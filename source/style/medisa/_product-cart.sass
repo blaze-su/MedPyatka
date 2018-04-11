@@ -6,7 +6,19 @@
 		width: max-content
 		@media all and (max-width: 1069px)
 			font-size: 1.111rem
+		@include w1023
+			margin: auto
+			width: 100%
+			padding: 0 30px
+		@include w767
+			padding: 0 10px
+		@media all and (max-width: 559px)
+			padding: 0
 		&-grid
+			@media all and (max-width: 1023px)
+				display: flex
+				flex-wrap: wrap
+				justify-content: space-between
 			& b
 				font-size: 1.667rem
 				@media all and (max-width: 1069px)
@@ -17,6 +29,34 @@
 				padding-top: 0.4em
 				&:first-child
 					margin-bottom: 3.333rem
+					@include w1023
+						margin-bottom: 2rem
+						max-width: 100%
+						width: 100%
+						background-color: transparent
+						padding: 0
+						text-align: left
+						padding-left: 6vw
+						& > div
+							max-width: max-content !important
+							min-width: auto !important
+							margin-right: 20px !important
+							@media all and (max-width: 1023px)
+								max-width: none !important
+								min-width: auto !important
+					@media all and (max-width: 559px)
+						justify-content: center
+						padding-left: 0
+				@media all and (max-width: 1023px)
+					flex-wrap: wrap
+					max-width: 48%
+					width: 100%
+					background-color: #f6f6f6
+					padding: 25px 10px
+					margin-bottom: 25px !important
+					text-align: center
+				@media all and (max-width: 639px)
+					max-width: 100%
 				&:last-child
 					margin-bottom: 1.778rem
 				& .product-basket__counter
@@ -24,6 +64,9 @@
 					&-box
 						margin-top: -0.4em
 						margin-left: 1.444rem
+						@media all and (max-width: 1023px)
+							margin: 20px auto 0
+							max-width: 100%
 				& .product-basket__absence
 					position: static
 					font-size: 14px
@@ -34,6 +77,12 @@
 					margin: 0 2.5rem 0 1.389rem
 					min-width: 150px
 					max-width: 150px
+				@media all and (max-width: 1023px)
+					min-width: 50% !important
+					max-width: 50% !important
+					width: 100%
+					padding-top: 0
+					margin: 0 !important
 		&-total
 			margin-bottom: 2rem
 		&-btn
@@ -47,6 +96,12 @@
 			position: relative
 			left: 100%
 			transform: translateX(-100%)
+			@media all and (max-width: 414px)
+				text-align: center
+				margin: auto
+				left: 0
+				position: static
+				transform: none
 	&__preview
 		&-item
 			&.-active

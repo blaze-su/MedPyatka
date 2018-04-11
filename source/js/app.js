@@ -1,13 +1,6 @@
 ;
 var $ = document;
 
-// if (moreCell && rightCell) {
-//   document.addEventListener('DOMContentLoaded', function() {
-//     setTimeout(recountCells, 0);
-//   });
-//   window.addEventListener('resize', recountCells);
-// }
-
 window.onload = () => {
   if ($.querySelector('.nav__list')) navMenu();
   if ($.querySelector('.control-sort')) listingSort($.querySelector('.listing__generated-container'));
@@ -19,76 +12,104 @@ window.onload = () => {
   if ($.getElementById('form-phone')) phoneMask();
   if ($.querySelector('.pagination')) pagination();
   if ($.querySelector('.listing-filter__control')) filterShow();
+  if ($.querySelector('.cart__preview-btn')) productPreview();
 };
 
 var navMenu = () => {
   var nav = $.querySelector('.nav__list'),
     navItems = nav.querySelectorAll('.nav__item'),
+    lastNavItem = navItems[navItems.length - 1],
     navRemItems = $.querySelectorAll('.nav-remainder__item'),
-    length,
-    lengths = [], //sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-    maxLength = nav.offsetWidth - 20 - navItems[navItems.length - 1].offsetWidth,
+    currLength,
+    lengths = [],
+    lastChildLength,
+    maxLength,
     hidden = "-hidden";
+  
+  navItems.forEach((item, i) => {
+    if (i !== navItems.length - 1) lengths.push(item.offsetWidth);
+    else lastChildLength = item.offsetWidth;
+    item.classList.add(hidden);
+    item.classList.remove('-visible');
+  });
+  maxLength = nav.offsetWidth - 20 - lastChildLength;
+
+  var _checkHiddenItem = () => {
+    for (let i = 0; i < navItems.length - 1; i++) {
+      if (navItems[i].classList.contains(hidden)) return true;
+    }
+  };
 
   var main = (resize) => {
-    if (resize === false) {
-      navItems[0].classList.remove(hidden);
-      length = -20 + navItems[0].offsetWidth;
-      navItems[0].classList.add(hidden);
-    }
-    else length = -20;
+    currLength = -20;
+    lengths.forEach((item, i) => {
+      if (resize === true) maxLength = nav.offsetWidth - 20 - lastChildLength;
 
-    var _innerMain = (item, i) => {
-      length += item.offsetWidth + 20;
-      if (length > maxLength) {
-        for (let j = i; j < navItems.length - 1; j++) {
-          if (!navItems[j].classList.contains(hidden)) {
-            navItems[j].classList.add(hidden);
-            navRemItems.forEach(itemRem => {
-              if (itemRem.querySelector('a').innerHTML == navItems[j].querySelector('a').innerHTML 
-                && itemRem.querySelector('a').getAttribute('href') == navItems[j].querySelector('a').getAttribute('href') 
-                && itemRem.classList.contains(hidden)) {
-                itemRem.classList.remove(hidden);
-              }
-            })
-          }
-          else return
-        }
-      }
-      else
-      {
-        for (let j = i; j < navItems.length - 1; j++) {
-          if (navItems[j].classList.contains(hidden)) {
-            navItems[j].classList.remove(hidden);
-            navRemItems.forEach(itemRem => {
-              if (itemRem.querySelector('a').innerHTML == navItems[j].querySelector('a').innerHTML 
-                && itemRem.querySelector('a').getAttribute('href') == navItems[j].querySelector('a').getAttribute('href') 
-                && !itemRem.classList.contains(hidden)) {
-                itemRem.classList.add(hidden);
-              }
-            })
-          }
-          else return
-        }
-      }
-    };
+      currLength += item + 20;
 
-    navItems.forEach((item, i) => {
-      if (resize === false) {
-        if (i !== navItems.length - 1) _innerMain(item, i);
-        if (navItems[navItems.length - 1].classList.contains(hidden)) navItems[navItems.length - 1].classList.remove(hidden);
-      }
-      if (resize === true) {
-        maxLength = nav.offsetWidth - 20 - navItems[navItems.length - 1].offsetWidth;
+      if (currLength <= maxLength) {
+        navItems[i].classList.remove(hidden);
+        navRemItems[i].classList.add(hidden);
+      } else {
+        navItems[i].classList.add(hidden);
+        navRemItems[i].classList.remove(hidden);
       }
     });
+
+    if (_checkHiddenItem() === true) lastNavItem.classList.remove(hidden);
+
+    if (resize === true) {
+      if (_checkHiddenItem() !== true) lastNavItem.classList.add(hidden);
+    }
   };
 
   main(false);
+  window.addEventListener("resize", () => main(true));
+};
 
-  window.addEventListener("resize", () => {
-    main(true);
-  });
+var productPreview = () => {
+  var items = [], curr;
+  var main = () => {
+    if ($.body.clientWidth <= 519) {
+      if (items.length === 0) {
+        for (let i = 0; i < $.querySelectorAll('.cart__preview').length; i++) {
+          var item = $.querySelectorAll('.cart__preview')[i];
+          items.push(item.getAttribute('src'));
+          if ($.querySelector('.cart__photo').getAttribute('src') === item.getAttribute('src'))
+            curr = i;
+        }
+      }
+      $.querySelectorAll('.cart__preview-btn').forEach(item => {
+        item.onclick = () => {
+          if (item.classList.contains('-next')) {
+            if (curr !== items.length - 1)
+              $.querySelector('.cart__photo').setAttribute('src', items[++curr])
+          }
+          if (item.classList.contains('-prev')) {
+            if (curr !== 0)
+              $.querySelector('.cart__photo').setAttribute('src', items[--curr])
+          }
+        }
+      })
+    } else {
+      if ($.querySelector('.cart__photo').getAttribute('src') !== $.querySelector('.cart__preview-item.-active').children[0].getAttribute('src')) {
+        $.querySelector('.cart__preview-item.-active').classList.remove('-active');
+        $.querySelectorAll('.cart__preview-item').forEach(item => {
+          if (item.children[0].getAttribute('src') === $.querySelector('.cart__photo').getAttribute('src'))
+            item.classList.add('-active');
+          return false;
+        })
+      }
+      $.querySelectorAll('.cart__preview-btn').forEach(item => {
+        item.onclick = () => {
+          if (item.classList.contains('-next')) $.querySelector('.cart__preview-list').scrollBy(100, 0);
+          if (item.classList.contains('-prev')) $.querySelector('.cart__preview-list').scrollBy(-100, 0);
+        }
+      })
+    }
+  }
+  main();
+  window.addEventListener('resize', () => main());
 };
 
 var listingSort = block => {
@@ -205,10 +226,10 @@ var pagination = () => {
     })
   };
 
-  if (document.body.clientWidth < 540) _hidden();
+  if ($.body.clientWidth < 540) _hidden();
 
   window.onresize = () => {
-    if (document.body.clientWidth < 540) _hidden();
+    if ($.body.clientWidth < 540) _hidden();
     else _show();
   }
 };
@@ -223,8 +244,8 @@ var siema = () => {
 };
 
 var phoneMask = () => {
-  if (document.getElementById('form-phone')) {
-    var _phone = document.getElementById('form-phone');
+  if ($.getElementById('form-phone')) {
+    var _phone = $.getElementById('form-phone');
     var _format = '+7(___)___-__-__';
     _phone.value = _format;
     MaskedInput({

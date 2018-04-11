@@ -4,12 +4,22 @@
 	margin: 0 auto
 	& > *
 		margin-bottom: 2.222rem
+		@media all and (max-width: 459px)
+			margin-bottom: 1.111rem
 	& > h1.title
 		text-align: center
+		@media all and (max-width: 459px)
+			font-size: 24px
 	& p
 		line-height: 1.5
 		font-size: 1.111rem
+		@media all and (max-width: 459px)
+			font-size: 1rem
 	&-contact
+		@media all and (max-width: 459px)
+			font-size: 16px
+		& h2
+			font-size: 1.556em
 		&__row:last-child
 			& > .thank-contact__cell
 				padding-bottom: 0
@@ -24,3 +34,5 @@
 	display: block
 	padding: 0.8889rem 1.444rem
 	width: max-content
+	@media all and (max-width: 459px)
+		margin-top: 2.222rem

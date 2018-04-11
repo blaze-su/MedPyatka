@@ -5,7 +5,11 @@
 h1
 	width: 100%
 	font-size: 2.222rem
-	margin-bottom: 1.667rem
+	margin-bottom: 0.750em
+	@include w1023
+		font-size: 1.889rem
+	@media all and (max-width: 640px)
+		font-size: 1.667rem
 h2
 	font-size: 1.556rem
 h3
@@ -19,6 +23,8 @@ html
 	min-width: 320px
 	width: 100%
 	height: auto
+	@media all and (max-width: 640px)
+		font-size: 17px
 
 
 body
@@ -60,3 +66,9 @@ body
 main
 	flex: 1
 	padding-bottom: 5.556rem
+	@media all and (max-width: 639px)
+		padding-bottom: 2.778rem
+
+.description
+	@media all and (max-width: 639px)
+		font-size: 15px

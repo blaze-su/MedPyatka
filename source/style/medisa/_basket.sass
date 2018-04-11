@@ -1,35 +1,42 @@
 .basket
-   padding-bottom: 5.556rem
-   & h1.title
-      margin-bottom: 10px
-   &-total
-      margin-top: 2.222rem
-      display: flex
-      width: 100%
-      justify-content: flex-end
-      &__text
-         text-transform: uppercase
-         font-size: 1.111rem
-      &__price
-         margin-left: 2.222rem
-   &__bottom-line
-      display: flex
-      justify-content: flex-end
-      flex-wrap: wrap
-      max-width: 1060px
-   &-issue
-      background-color: $yellow
-      display: block
-      padding: 0.8889rem 1.444rem
-      min-width: 220px
-      text-align: center
-      margin-top: 22px
+	& h1.title
+		margin-bottom: 10px
+	&-total
+		margin-top: 2.222rem
+		display: flex
+		width: 100%
+		justify-content: inherit
+		&__text
+			text-transform: uppercase
+			font-size: 1.111rem
+		&__price
+			margin-left: 2.222rem
+	&__bottom-line
+		display: flex
+		justify-content: flex-end
+		flex-wrap: wrap
+		max-width: 100%
+		margin-right: 100px
+		@media all and (max-width: 639px)
+			margin: 0
+			justify-content: center
+	&-issue
+		background-color: $yellow
+		display: block
+		padding: 0.8889rem 1.444rem
+		min-width: 220px
+		text-align: center
+		margin-top: 22px
 
 .back-to-buy
-   margin-bottom: 10px
-   text-decoration: underline
-   font-size: 1.111rem
-   width: max-content
-   position: relative
-   left: calc( 100% - 38px )
-   transform: translateX(-100%)
+	margin-bottom: 10px
+	text-decoration: underline
+	font-size: 1.111rem
+	width: max-content
+	position: relative
+	left: calc( 100% - 38px )
+	transform: translateX(-100%)
+	@media all and (max-width: 639px)
+		transform: none
+		margin: 25px auto
+		position: static

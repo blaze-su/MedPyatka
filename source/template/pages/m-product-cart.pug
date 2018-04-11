@@ -1,99 +1,87 @@
 extends ../_template
 
 block variables
-   - var m = true;
+	- var m = true;
 
 block content
-   +breadCrumbs(["Главная", "Мужская обувь", "Туфли мужские", "Туфли мужские ХХХХХ"])
-   .cart.container
-      h1.title Туфли мужские ХХХХХХ
-
-      .cart__grid
-         .cart__grid-overview
-            .cart__photo-box
-               img(src="/assets/img/medisa/product-cart/2.png", alt="name").cart__photo
-            .cart__preview-list
-               .cart__preview-item
-                  img(src="/assets/img/medisa/product-cart/1.png", alt="name").cart__preview
-               .cart__preview-item
-                  img(src="/assets/img/medisa/product-cart/2.png", alt="name").cart__preview
-               .cart__preview-item
-                  img(src="/assets/img/medisa/product-cart/3.png", alt="name").cart__preview
-         .cart__grid-data
-            .cart__price
-               .cart__price-grid
-                  .cart__price-grid-row
-                     .cart__price-grid-col Цена за пару
-                     .cart__price-grid-col
-                        b 500 ₽
-                  .cart__price-grid-row
-                     .cart__price-grid-col за короб
-                     .cart__price-grid-col 50 000 ₽
-                     .product-basket__counter-box
-                        +product-basket-inner(false, true)
-                  .cart__price-grid-row
-                     .cart__price-grid-col за полкороба
-                     .cart__price-grid-col 25 000 ₽
-                     .product-basket__counter-box
-                        +product-basket-inner(false, false)
-               .cart__price-footer
-                  .cart__price-total Всего: 3,5 короба
-                  button.cart__price-btn В корзине         
-            .cart__feature
-               .cart__feature-row
-                  .cart__feature-col Брэнд  
-                  .cart__feature-col Roskoni
-               .cart__feature-row
-                  .cart__feature-col Артикул
-                  .cart__feature-col XXXXXXX
-               .cart__feature-row
-                  .cart__feature-col Вид обуви 
-                  .cart__feature-col Туфли 
-               .cart__feature-row
-                  .cart__feature-col Сезонность 
-                  .cart__feature-col Зима
-               .cart__feature-row
-                  .cart__feature-col Сегмент 
-                  .cart__feature-col Мужские 
-               .cart__feature-row
-                  .cart__feature-col Размерный ряд
-                  .cart__feature-col 39-46
-               .cart__feature-row
-                  .cart__feature-col Состав коробки
-                  .cart__feature-col 9 пар
-               .cart__feature-row
-                  .cart__feature-col Материал верха
-                  .cart__feature-col Натуральная кожа
-               .cart__feature-row
-                  .cart__feature-col Материал подкладки
-                  .cart__feature-col Натуральный мех
-               .cart__feature-row
-                  .cart__feature-col Страна-производитель
-                  .cart__feature-col Россия 
-               .cart__feature-row
-                  .cart__feature-col В наличии (нет в наличии)
-                  .cart__feature-col Есть на складе
-   section.popular-models
-      h1.title Вы смотрели
-      include ./../common/_popular-models.pug
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	+breadCrumbs(["Главная", "Мужская обувь", "Туфли мужские", "Туфли мужские ХХХХХ"])
+	.cart.container
+		h1.title Туфли мужские ХХХХХХ
+		.cart__grid
+			.cart__grid-overview
+				.cart__photo-box
+					img(src="/assets/img/medisa/product-cart/2.png", alt="name").cart__photo
+				.cart__preview-list
+					.cart__preview-item
+						img(src="/assets/img/medisa/product-cart/1.png", alt="name").cart__preview
+					.cart__preview-item
+						img(src="/assets/img/medisa/product-cart/2.png", alt="name").cart__preview
+					.cart__preview-item
+						img(src="/assets/img/medisa/product-cart/3.png", alt="name").cart__preview
+					.cart__preview-item
+						img(src="/assets/img/medisa/product-cart/1.png", alt="name").cart__preview
+					.cart__preview-item
+						img(src="/assets/img/medisa/product-cart/3.png", alt="name").cart__preview
+					.cart__preview-item
+						img(src="/assets/img/medisa/product-cart/3.png", alt="name").cart__preview
+					.cart__preview-item
+						img(src="/assets/img/medisa/product-cart/3.png", alt="name").cart__preview
+				button.btn.cart__preview-btn.-next &rsaquo;
+				button.btn.cart__preview-btn.-prev &lsaquo;
+			.cart__grid-data
+				.cart__price
+					.cart__price-grid
+						.cart__price-grid-row
+							.cart__price-grid-col Цена за пару
+							.cart__price-grid-col
+								b 500 ₽
+						.cart__price-grid-row
+							.cart__price-grid-col за короб
+							.cart__price-grid-col 50 000 ₽
+							.product-basket__counter-box
+								+product-basket-inner(false, true)
+						.cart__price-grid-row
+							.cart__price-grid-col за полкороба
+							.cart__price-grid-col 25 000 ₽
+							.product-basket__counter-box
+								+product-basket-inner(false, false)
+					.cart__price-footer
+						.cart__price-total Всего: 3,5 короба
+						button.cart__price-btn В корзине         
+				.cart__feature
+					.cart__feature-row
+						.cart__feature-col Брэнд  
+						.cart__feature-col Roskoni
+					.cart__feature-row
+						.cart__feature-col Артикул
+						.cart__feature-col XXXXXXX
+					.cart__feature-row
+						.cart__feature-col Вид обуви 
+						.cart__feature-col Туфли 
+					.cart__feature-row
+						.cart__feature-col Сезонность 
+						.cart__feature-col Зима
+					.cart__feature-row
+						.cart__feature-col Сегмент 
+						.cart__feature-col Мужские 
+					.cart__feature-row
+						.cart__feature-col Размерный ряд
+						.cart__feature-col 39-46
+					.cart__feature-row
+						.cart__feature-col Состав коробки
+						.cart__feature-col 9 пар
+					.cart__feature-row
+						.cart__feature-col Материал верха
+						.cart__feature-col Натуральная кожа
+					.cart__feature-row
+						.cart__feature-col Материал подкладки
+						.cart__feature-col Натуральный мех
+					.cart__feature-row
+						.cart__feature-col Страна-производитель
+						.cart__feature-col Россия 
+					.cart__feature-row
+						.cart__feature-col В наличии (нет в наличии)
+						.cart__feature-col Есть на складе
+	section.popular-models
+		h1.title Вы смотрели
+		include ./../common/_popular-models.pug
