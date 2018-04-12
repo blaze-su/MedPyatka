@@ -7,6 +7,12 @@
    &-map
       width: 100%
       height: 37vw
+      @include w1024
+         height: 40vw
+      @include w768
+         height: 45vw
+      @media all and (max-width: 640px)
+         height: 55vw
       &__box
          margin-bottom: 3.889rem
 .our-shop
@@ -14,33 +20,51 @@
       display: flex
       flex-wrap: wrap
       margin: 0 -1.111rem -2.778rem
+      @media all and (max-width: 1199px)
+         max-width: 800px
+         margin: 0 auto -2.778rem
+      @media all and (max-width: 819px)
+         max-width: 748px
+      @include w767
+         max-width: 360px
    &__item
+      font-size: 1rem
       max-width: 360px
       overflow: hidden
-      margin: 0 1.111rem 2.778rem
+      margin: 0 1.111em 2.778em
       display: flex
       flex-wrap: wrap
       align-content: space-between
+      @media all and (max-width: 819px)
+         margin: 0 7px 2.778em
+      @include w767
+         margin: 0 0 2.778em
+      @media all and (max-width: 459px)
+         font-size: 16px
       &-img
          min-height: 270px
          max-height: 270px
          min-width: 100%
          width: auto
-         margin: 0 auto 2.222rem
+         margin: 0 auto 2.222em
+         @media all and (max-width: 460px)
+            margin-bottom: 1em
+         @media all and (max-width: 399px)
+            min-height: auto
       &-name
          line-height: 1.25
-         font-size: 1.333rem
+         font-size: 1.333em
       &-address
          display: block
-         min-height: 5rem
+         min-height: 5em
          line-height: 1.67
          +Helvetica()
       &-worktime
          line-height: 1.67
          +Helvetica()
       &-phone
-         margin-top: 1.111rem
-         font-size: 1.333rem
+         margin-top: 1.111em
+         font-size: 1.333em
          & > span
             +Helvetica()
-            font-size: 1rem
+            font-size: 1em

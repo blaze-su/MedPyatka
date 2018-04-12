@@ -1,4 +1,7 @@
 .cart
+   & > h1.title
+      @media all and (max-width: 459px)
+         font-size: 1.5rem
    &__grid
       justify-content: space-between
       position: relative
@@ -8,6 +11,10 @@
             border-color: $product-border
             border-width: 3px
    &-info
+      @include w1023
+         padding: 0 1em
+      @media all and (max-width: 459px)
+         padding: 0
       & span
          display: block
       &__price

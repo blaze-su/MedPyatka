@@ -1,11 +1,21 @@
 .events
-   &__item
-      font-size: 1.333rem
-      margin-bottom: 2.222rem
-      display: flex
-   &__date
-      margin-right: 3.056rem
-      display: block
-   &__link
-      +Helvetica()
-      text-decoration: underline
+	font-size: 1rem
+	@include w767
+		font-size: 16px
+	@media all and (max-width: 459px)
+		font-size: 14px
+	&__item
+		font-size: 1.333em
+		margin-bottom: 2.222em
+		display: flex
+		line-height: 1.4
+		@media all and (max-width: 639px)
+			display: block
+		@media all and (max-width: 459px)
+			margin-bottom: 1.111em
+	&__date
+		margin-right: 3.056em
+		display: block
+	&__link
+		+Helvetica()
+		text-decoration: underline

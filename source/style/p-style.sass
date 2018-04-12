@@ -8,6 +8,12 @@ $product-border: #393186
 @import './pyatka/**/*.sass'
 
 .wait-you
-   text-align: center
-   & *
-      font-family: Helvetica !important
+	text-align: center
+	& *
+		font-family: Helvetica !important
+
+.is-home
+	& .popular-models
+		padding-bottom: 0
+		@media all and (max-width: 389px)
+			padding-bottom: 80px
