@@ -8,11 +8,11 @@ window.onload = () => {
   if ($.querySelector('.search')) search($.querySelector('.listing'));
   if ($.querySelector('.cart__grid-overview')) cartGalery();
   if ($.querySelector('.go-top')) goTop();
-  if ($.querySelector('.news-slider')) siema();
   if ($.getElementById('form-phone')) phoneMask();
   if ($.querySelector('.pagination')) pagination();
   if ($.querySelector('.listing-filter__control')) filterShow();
   if ($.querySelector('.cart__preview-btn')) productPreview();
+  swiper();
 };
 
 var navMenu = () => {
@@ -240,7 +240,47 @@ var goTop = () => {
   }
 };
 
-var siema = () => {
+var swiper = () => {
+  if ($.querySelector('.news-slider')) {
+    var indexSlider = new Swiper('.news-slider', {
+      slideClass: "news-slider__image-box",
+      slideActiveClass: "-active",
+      wrapperClass: "news-slider__wrapper",
+      pagination: {
+        el: '.news-slider__nav',
+        bulletElement: 'li',
+        bulletClass: 'news-slider__nav-item',
+        bulletActiveClass: '-active',
+        clickable: true
+      },
+      loop: true,
+      autoplay: {
+        delay: 2200,
+      },
+    })
+  }
+  if ($.querySelector('.ticker')) {
+    var tickerSlider = new Swiper('.ticker', {
+      slideClass: "ticker__brand",
+      wrapperClass: "ticker__wrapper",
+      slidesPerView: 'auto',
+      loop: true,
+      autoplay: {
+        delay: 2200,
+      },
+    })
+  }
+  if ($.querySelector('.models-slider')) {
+    var popModelsSlider = new Swiper('.models-slider__wrapper', {
+      slideClass: "product",
+      wrapperClass: "models-slider__list",
+      slidesPerView: 4,
+      navigation: {
+        nextEl: '.models-slider__btn.-next',
+        prevEl: '.models-slider__btn.-prev',
+      },
+    })
+  }
 };
 
 var phoneMask = () => {

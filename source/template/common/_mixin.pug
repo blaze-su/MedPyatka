@@ -112,10 +112,16 @@ mixin product-basket(imgSrc, half, error)
 mixin popup(index)
 	-
 		var address = [
-			{title: 'ул. Стасова 182/1', subTitle: 'район ХБК, территория «ТРК Меридиан»', days: 'Ежедневно', time: 'с 9:00 до 20:00', phone: ' 8 (861) 200-19-20'},
-			{title: 'ул. 40-лет Победы, 117', subTitle: 'район Восточно-Кругликовской, напротив гипермарткета «Магнит»', days: 'Ежедневно', time: 'с 9:00 до 20:00', phone: ' 8 (918) 18-168-94'},
-			{title: 'ул. Трудовой славы, 23/1', subTitle: 'ГМР, напротив кафе «Русь»', days: 'Ежедневно', time: 'с 9:00 до 20:00', phone: ' 8 (861) 266-85-55'},
-			{title: 'ул. Сормовская, 116/1', subTitle: 'КМР, напротив рынка', days: 'Ежедневно', time: 'с 9:00 до 20:00', phone: ' 8 (861) 232-09-08'}
+			{title: 'ул. Стасова 182/1', subTitle: 'район ХБК, территория «ТРК Меридиан»', days: 'Ежедневно ', time: 'с 9:00 до 20:00', phone: ' 8 (861) 200-19-20'},
+			{title: 'ул. 40-лет Победы, 117', subTitle: 'район Восточно-Кругликовской, напротив гипермарткета «Магнит»', days: 'Ежедневно ', time: 'с 9:00 до 20:00', phone: ' 8 (918) 18-168-94'},
+			{title: 'ул. Трудовой славы, 23/1', subTitle: 'ГМР, напротив кафе «Русь»', days: 'Ежедневно ', time: 'с 9:00 до 20:00', phone: ' 8 (861) 266-85-55'},
+			{title: 'ул. Сормовская, 116/1', subTitle: 'КМР, напротив рынка', days: 'Ежедневно ', time: 'с 9:00 до 20:00', phone: ' 8 (861) 232-09-08'}
+		],
+		productsAddress = [
+			{title: 'ул. Стасова 182/1', subTitle: 'район ХБК, территория «ТРК Меридиан»', days: 'Ежедневно ', time: 'с 9:00 до 20:00', phone: ' 8 (861) 200-19-20', price: 3000, par: 10},
+			{title: 'ул. 40-лет Победы, 117', subTitle: 'район Восточно-Кругликовской, напротив гипермарткета «Магнит»', days: 'Ежедневно ', time: 'с 9:00 до 20:00', phone: ' 8 (918) 18-168-94', price: 3900, par: 14},
+			{title: 'ул. Трудовой славы, 23/1', subTitle: 'ГМР, напротив кафе «Русь»', days: 'Ежедневно ', time: 'с 9:00 до 20:00', phone: ' 8 (861) 266-85-55', price: 3100, par: 7},
+			{title: 'ул. Сормовская, 116/1', subTitle: 'КМР, напротив рынка', days: 'Ежедневно ', time: 'с 9:00 до 20:00', phone: ' 8 (861) 232-09-08', price: 3150, par: 2}
 		]
 	if index === true
 		.popup.-contacts
@@ -126,7 +132,7 @@ mixin popup(index)
 					.popup__grid-head
 						.popup__grid-col Адрес магазина
 						.popup__grid-col Время работы
-						.popup__grid-col Телефон
+						.popup__grid-col Цена
 					.popup__grid-body
 						each item in address
 							.popup__grid-row
@@ -140,11 +146,10 @@ mixin popup(index)
 								.popup__grid-col
 									| Тел.
 									span= item.phone
-				a.popup__map-link(href="#") Посмотреть на карте
 	else
 		.popup.-product
 			.popup__inner
-				p.popup__title Контакты магазинов
+				p.popup__title Наличие товара
 				button.popup__close-btn
 				.popup__grid
 					.popup__grid-head
@@ -152,15 +157,27 @@ mixin popup(index)
 						.popup__grid-col Время работы
 						.popup__grid-col Телефон
 					.popup__grid-body
-						each item in address
+						each item in productsAddress
 							.popup__grid-row
 								.popup__grid-col
 									p= item.title
 									=item.subTitle
+									br
+									p Тел.
+										= item.phone
 								.popup__grid-col
+									//- первую часть всегда выводить с пробелом в конце
 									= item.days
 									br
 									= item.time
 								.popup__grid-col
-									| Тел.
-									span= item.phone
+									| Цена: 
+									span= item.price
+										|  ₽
+									br
+									| Сегодня 
+									= item.par
+									|  пар
+					div.popup__grid-footer
+						img(src="assets/img/pyatka/popup-img.png", alt="Ботинки мужские ХХХХХ").popup__product-img
+						p.popup__product-name Ботинки мужские ХХХХХ

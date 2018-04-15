@@ -35,13 +35,14 @@
 			+Helvetica()
 	&-slider
 		position: relative
+		overflow: hidden
 		width: 100%
 		max-width: 649px
 		@media all and (max-width: 1199px)
 			max-width: none
 		&__wrapper
 			height: 400px
-			overflow: hidden
+			display: flex
 			@media all and (max-width: 640px)
 				height: 63vw
 		&__image
@@ -58,6 +59,8 @@
 				height: 400px
 				overflow: hidden
 				text-align: center
+				min-width: 100%
+				max-width: 100%
 				@media all and (max-width: 640px)
 					height: 63vw
 		&__nav
@@ -65,6 +68,8 @@
 			top: 50%
 			transform: translateY(-50%)
 			right: 5px
+			@media all and (max-width: 639px)
+				display: none
 			&-item
 				width: 20px
 				height: 20px

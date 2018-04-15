@@ -2,26 +2,38 @@
 	display: none
 	max-width: 1160px
 	width: 100%
-	padding: 0 60px
+	padding: 0 60px 95px
 	left: 50%
 	transform: translateX(-50%)
 	position: absolute
 	background-color: $popup
 	z-index: 1000000
+	@include w1024
+		top: 0 !important
+		position: fixed
+		width: 100vw
+		height: 100vh
+	@include w767
+		padding: 0 20px
+	@media all and (max-width: 459px)
+		padding: 0 10px
 	&.-contacts
 		top: 100%
 	&.-product
-		top: -89px
+		top: 0
 	&.-show
 		display: block
 	&__inner
-		padding-bottom: 95px
 		position: relative
 	&__title
 		font-size: 1.667rem
 		margin-top: 1.111rem
 		margin-bottom: 1.111rem
+		padding-right: 100px
 		+Helvetica(bold)
+		@media all and (max-width: 459px)
+			padding-right: 50px
+			font-size: 1.333rem
 	&__close-btn
 		position: absolute
 		background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ4OS44IDQ4OS44IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0ODkuOCA0ODkuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik00MzguMiwwSDUxLjZDMjMuMSwwLDAsMjMuMiwwLDUxLjZ2Mzg2LjZjMCwyOC41LDIzLjIsNTEuNiw1MS42LDUxLjZoMzg2LjZjMjguNSwwLDUxLjYtMjMuMiw1MS42LTUxLjZWNTEuNiAgICBDNDg5LjgsMjMuMiw0NjYuNiwwLDQzOC4yLDB6IE00NjUuMyw0MzguMmMwLDE0LjktMTIuMiwyNy4xLTI3LjEsMjcuMUg1MS42Yy0xNC45LDAtMjcuMS0xMi4yLTI3LjEtMjcuMVY1MS42ICAgIGMwLTE0LjksMTIuMi0yNy4xLDI3LjEtMjcuMWgzODYuNmMxNC45LDAsMjcuMSwxMi4yLDI3LjEsMjcuMVY0MzguMnoiIGZpbGw9IiM4MjgyODIiLz4KCQk8cGF0aCBkPSJNMzE5LDE3MC44Yy00LjgtNC44LTEyLjUtNC44LTE3LjMsMGwtNTYuOCw1Ni44bC01Ni44LTU2LjhjLTQuOC00LjgtMTIuNS00LjgtMTcuMywwcy00LjgsMTIuNSwwLDE3LjNsNTYuOCw1Ni44ICAgIGwtNTYuOCw1Ni44Yy00LjgsNC44LTQuOCwxMi41LDAsMTcuM2MyLjQsMi40LDUuNSwzLjYsOC43LDMuNnM2LjMtMS4yLDguNy0zLjZsNTYuOC01Ni44bDU2LjgsNTYuOGMyLjQsMi40LDUuNSwzLjYsOC43LDMuNiAgICBzNi4zLTEuMiw4LjctMy42YzQuOC00LjgsNC44LTEyLjUsMC0xNy4zbC01Ny01Ni44bDU2LjgtNTYuOEMzMjMuOCwxODMuMywzMjMuOCwxNzUuNiwzMTksMTcwLjh6IiBmaWxsPSIjODI4MjgyIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==)
@@ -32,6 +44,8 @@
 		right: 0
 		top: -6px
 		transform: translate(100%, 0)
+		@include w767
+			transform: none
 	&__grid
 		width: 100%
 		&-head
@@ -39,31 +53,101 @@
 			margin-bottom: 5px
 			display: flex
 			padding: 10px 40px
+			@include w1023
+				padding: 5px 40px
+			@media all and (max-width: 639px)
+				justify-content: space-between
+				padding: 5px 20px
+			@media all and (max-width: 459px)
+				display: none
 			& *
 				font-size: 1rem !important
 				line-height: 1.23
+			& > .popup__grid-col
+				margin-bottom: 0 !important
+				width: calc(100% / 3)
+				padding-right: 0
+				text-align: center
+				@include w1023
+					margin-top: 0 !important
+				@media all and (max-width: 639px)
+					max-width: max-content
+					width: max-content
+				&:first-child
+					text-align: left
+		&-body
+			overflow-y: auto
+			overflow-x: hidden
 		&-row
 			padding: 10px 40px
 			display: flex
 			background-color: $white
 			+Helvetica()
 			margin-bottom: 2px
-			height: 6.111rem
+			@include w1023
+				flex-wrap: wrap
+			@media all and (max-width: 639px)
+				padding: 10px 20px
+			@media all and (max-width: 459px)
+				padding: 5px 10px 10px
 		&-col
 			flex: 1
 			padding-right: 2.222rem
 			line-height: 1.67
+			@include w1023
+				flex: none
+				width: 100%
+				max-width: 50%
+				padding-right: 0
+			@media all and (max-width: 639px)
+				max-width: 100%
+				margin-bottom: 15px
+				&:last-child
+					margin-bottom: 0
+			& > br
+				@media all and (max-width: 639px)
+					display: none
 			&:first-child
 				flex: 1 400px
 				max-width: 400px
 				font-size: 0.7778rem
+				@include w1023
+					max-width: 100%
+					margin-bottom: 25px
+					flex: none
+				@media all and (max-width: 639px)
+					margin-bottom: 15px
 				& > p
 					font-size: 1rem
 					line-height: 2.14
 					font-family: Helvetica, serif
 			&:last-child
+				@include w1023
+					margin-top: -8px
 				& > span
 					font-size: 1.333rem
+				& > br
+					@media all and (max-width: 659px)
+						display: block
+		&-footer
+			margin-top: 10px
+			display: flex
+			align-items: center
+			padding: 30px 40px
+			background-color: $white
+			@include w1023
+				padding: 10px 40px
+			@media all and (max-width: 459px)
+				flex-direction: column
+	&__product
+		&-img
+			margin-right: 30px
+			max-width: 100px
+			width: auto
+			max-height: 100px
+			height: auto
+		&-name
+			font-size: 1.111rem
 	&__map-link
 		position: absolute
 		text-decoration: underline

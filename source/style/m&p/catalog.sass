@@ -42,16 +42,17 @@
 		justify-content: flex-end
 		display: flex
 		@include w1023
-			flex-direction: column
-			align-items: flex-end
-			max-width: 870px
+			justify-content: flex-start
 			margin-left: auto
 			margin-right: auto
+		@media all and (max-width: 685px)
+			justify-content: space-between
+		@media all and (max-width: 599px)
+			flex-direction: column
 		& > .control-sort:last-child
 			margin-left: 110px
-			@include w1023
+			@media all and (max-width: 685px)
 				margin-left: 0
-
 	&-filter
 		border-radius: 5px
 		border: solid 1px $grey
