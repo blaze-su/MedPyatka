@@ -18,17 +18,17 @@
 				padding-left: 10px
 		&__select
 			user-select: none
-			margin-top: -8px
+			margin-top: -7px
 			width: max-content
 			&.-open
 				height: auto
 				z-index: 100
-				padding-bottom: 10px				
 				border-radius: 5px
 				border: 1px solid $grey
 				background-color: $white
 				& > .control-sort__option
-					display: block
+					visibility: visible
+					height: auto
 					&:first-child
 						text-decoration: underline
 						cursor: default
@@ -36,11 +36,18 @@
 			padding-right: 36px
 			padding-left: 10px
 			line-height: 1.83
-			display: none
+			height: 0
+			visibility: hidden
+			&:last-child
+				border-bottom-left-radius: 5px
+				border-bottom-right-radius: 5px
 			&:first-child
+				border-top-left-radius: 5px
+				border-top-right-radius: 5px
 				position: relative
-				display: block
 				cursor: pointer
+				visibility: visible
+				height: auto
 				&:after
 					content: ''
 					width: 16px

@@ -147,46 +147,53 @@
 		display: flex
 		flex-wrap: wrap
 		margin-bottom: 3.889rem
+		border-top: 1px solid $grey
+		border-left: 1px solid $grey
 		@include w1023
 			margin-left: auto
 			margin-right: auto
 		@media all and (max-width: 685px)
 			justify-content: center
+		@media all and (max-width: 464px)
+			max-width: 310px
+			border: none
 		& > .product
+			border-left: none
+			border-top: none
 			min-width: 222px
-			max-width: calc(100% / 3)
+			max-width: none
+			flex: 1
 			@include w1159
 				padding: 10px 15px 15px
 				font-size: 17px
-			@media all and (min-width: 910px) and (max-width: 1023px)
-				max-width: calc(100% / 4)
-			@media all and (min-width: 540px) and (max-width: 685px)
-				max-width: 290px
-				width: calc(100% / 2 - 20px)
-				margin: 10px
 			@media all and (max-width: 464px)
 				max-width: 290px
 				margin-bottom: 20px
+				border: 1px solid $grey
 
 .form
-   &-control
-      display: flex
-      align-items: center
-      margin-right: 15px
-      &:last-child
-         margin-right: 0
-      &__input
-         width: 3.889rem
-         height: 1.778rem
-         text-align: center
-         border-radius: 3px
-         border: solid 1px $grey
-         margin-left: 10px
-   &-submit
-      background-color: $yellow
-   &-clear
-      border: 1px solid $black
-      color: $grey-filter
+	&-control
+		display: flex
+		align-items: center
+		margin-right: 15px
+		&:last-child
+			margin-right: 0
+		&__input
+			width: 3.889rem
+			height: 1.778rem
+			text-align: center
+			border-radius: 3px
+			border: solid 1px $grey
+			margin-left: 10px
+	&-submit
+		background-color: $yellow
+		&:hover
+			background-color: #FFAC00
+	&-clear
+		border: 1px solid $black
+		color: $grey-filter
+		&:hover
+			text-decoration: underline
 
 .checkbox
 	margin: 0 10px 0 0
