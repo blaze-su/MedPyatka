@@ -15,11 +15,11 @@
 		justify-content: space-between
 		max-width: 855px
 		position: relative
-		left: 100%
-		transform: translateX(-100%)
+		// left: 100%
+		// transform: translateX(-100%)
 		@include w1023
-			transform: none
-			left: 0
+			// transform: none
+			// left: 0
 			max-width: 100%
 		@media all and (max-width: 685px)
 			flex-wrap: wrap
@@ -74,5 +74,10 @@
 	border: solid 0.5px $product-grey
 	border-radius: 50%
 	transform: rotate(-90deg)
+	&.-active
+		position: fixed
+		bottom: 40px
+		right: 40px
+		background-color: $white
 	@media all and (max-width: 685px)
 		margin-top: 2.778rem

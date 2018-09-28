@@ -4,12 +4,15 @@
 		margin-bottom: 1em
 	&__grid
 		display: flex
+		align-items: flex-start
 		@include w1023
 			flex-direction: column
 			align-items: center
 		&-overview
 			max-width: 550px
 			width: 100%
+			@media all and (min-width: 1170px)
+				padding-top: 35px
 			padding: 20px 20px 25px
 			position: relative
 			display: flex
@@ -17,11 +20,11 @@
 			align-items: flex-start
 			@media all and (max-width: 1169px)
 				max-width: 450px
+				flex-direction: column
+				align-items: center
 			@include w1023
 				padding: 0 0 40px
 				max-width: 605px
-				flex-direction: column
-				align-items: center
 				margin-bottom: 40px
 			@media all and (max-width: 519px)
 				max-width: 505px
@@ -53,36 +56,50 @@
 		width: auto
 		margin: auto
 		&-btn
+			right: 0
 			position: absolute
 			width: 40px
 			height: 40px
 			border: solid 1px #979797
-			bottom: 68px
 			border-radius: 5px
 			font-size: 27px
 			color: #616161
-			display: none
-			@include w1023
-				display: block
+			@media all and (max-width: 1169px)
+				bottom: 68px
 			@media all and (max-width: 519px)
 				bottom: 0
 			&.-next
 				right: 0
+				@media all and (min-width: 1170px)
+					right: 58px
+					transform: rotate(90deg)
+					height: 100px
+					width: 25px
+					bottom: -38px
 				@media all and (max-width: 519px)
 					right: 35%
 			&.-prev
 				left: 0
+				@media all and (min-width: 1170px)
+					transform: rotate(90deg)
+					height: 100px
+					width: 25px
+					right: 58px
+					left: auto
+					top: -37px
+				@include w1023
+					left: 0
 				@media all and (max-width: 519px)
 					left: 35%
 		&-list
-			@media all and (min-width: 1024px) and (max-width: 1169px)
+			overflow: hidden
+			@media all and (min-width: 1169px)
+				max-height: 330px
+			@media all and (max-width: 1169px)
 				display: flex
-				flex-wrap: wrap
-				max-width: 400px
+				max-width: 300px
 			@include w1023
 				max-width: 500px
-				overflow: hidden
-				display: flex
 			@media all and (max-width: 639px)
 				max-width: 400px
 			@media all and (max-width: 519px)
@@ -121,3 +138,45 @@
 				max-width: 100%
 				&:nth-child(2n - 1)
 					background-color: #f6f6f6
+	& .modal
+		position: fixed
+		border: 1px solid grey
+		padding: 2vw
+		width: 98vw
+		height: 98vh
+		display: flex
+		left: 50%
+		transform: translateX(-50%)
+		background-color: $white
+		top: 1vh
+		&__close
+			position: absolute
+			background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ4OS44IDQ4OS44IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0ODkuOCA0ODkuODsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik00MzguMiwwSDUxLjZDMjMuMSwwLDAsMjMuMiwwLDUxLjZ2Mzg2LjZjMCwyOC41LDIzLjIsNTEuNiw1MS42LDUxLjZoMzg2LjZjMjguNSwwLDUxLjYtMjMuMiw1MS42LTUxLjZWNTEuNiAgICBDNDg5LjgsMjMuMiw0NjYuNiwwLDQzOC4yLDB6IE00NjUuMyw0MzguMmMwLDE0LjktMTIuMiwyNy4xLTI3LjEsMjcuMUg1MS42Yy0xNC45LDAtMjcuMS0xMi4yLTI3LjEtMjcuMVY1MS42ICAgIGMwLTE0LjksMTIuMi0yNy4xLDI3LjEtMjcuMWgzODYuNmMxNC45LDAsMjcuMSwxMi4yLDI3LjEsMjcuMVY0MzguMnoiIGZpbGw9IiM4MjgyODIiLz4KCQk8cGF0aCBkPSJNMzE5LDE3MC44Yy00LjgtNC44LTEyLjUtNC44LTE3LjMsMGwtNTYuOCw1Ni44bC01Ni44LTU2LjhjLTQuOC00LjgtMTIuNS00LjgtMTcuMywwcy00LjgsMTIuNSwwLDE3LjNsNTYuOCw1Ni44ICAgIGwtNTYuOCw1Ni44Yy00LjgsNC44LTQuOCwxMi41LDAsMTcuM2MyLjQsMi40LDUuNSwzLjYsOC43LDMuNnM2LjMtMS4yLDguNy0zLjZsNTYuOC01Ni44bDU2LjgsNTYuOGMyLjQsMi40LDUuNSwzLjYsOC43LDMuNiAgICBzNi4zLTEuMiw4LjctMy42YzQuOC00LjgsNC44LTEyLjUsMC0xNy4zbC01Ny01Ni44bDU2LjgtNTYuOEMzMjMuOCwxODMuMywzMjMuOCwxNzUuNiwzMTksMTcwLjh6IiBmaWxsPSIjODI4MjgyIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==)
+			width: 40px
+			height: 40px
+			background-size: 100% 100%
+			background-repeat: no-repeat
+			right: 30px
+			top: 30px
+			cursor: pointer
+		&__img
+			margin: auto
+			max-width: 99%
+			width: auto
+			max-height: 99%
+			height: auto
+		&__btn
+			width: 50px
+			height: 90px
+			cursor: pointer
+			position: absolute
+			background-size: 100% 100%
+			background-repeat: no-repeat
+			background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjkgMTI5IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxMjkgMTI5IiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KICA8Zz4KICAgIDxwYXRoIGQ9Im00MC40LDEyMS4zYy0wLjgsMC44LTEuOCwxLjItMi45LDEuMnMtMi4xLTAuNC0yLjktMS4yYy0xLjYtMS42LTEuNi00LjIgMC01LjhsNTEtNTEtNTEtNTFjLTEuNi0xLjYtMS42LTQuMiAwLTUuOCAxLjYtMS42IDQuMi0xLjYgNS44LDBsNTMuOSw1My45YzEuNiwxLjYgMS42LDQuMiAwLDUuOGwtNTMuOSw1My45eiIgZmlsbD0iIzAwMDAwMCIvPgogIDwvZz4KPC9zdmc+Cg==)
+			top: 50%
+			&.-prev
+				left: 20px
+				transform: translateY(-50%) rotate(180deg)
+			&.-next
+				right: 20px
+				transform: translateY(-50%)

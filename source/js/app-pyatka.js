@@ -78,8 +78,15 @@ productPreview = () => {
       }
       $.querySelectorAll('.cart__preview-btn').forEach(item => {
         item.onclick = () => {
-          if (item.classList.contains('-next')) $.querySelector('.cart__preview-list').scrollBy(100, 0);
-          if (item.classList.contains('-prev')) $.querySelector('.cart__preview-list').scrollBy(-100, 0);
+          if (item.classList.contains('-next')) {
+            if ($.body.offsetWidth > 1169) $.querySelector('.cart__preview-list').scrollBy(0, 110);
+            else $.querySelector('.cart__preview-list').scrollBy(100, 0);
+          }
+          if (item.classList.contains('-prev')) {
+            if ($.body.offsetWidth > 1169)
+              $.querySelector('.cart__preview-list').scrollBy(0, -110);
+            else $.querySelector('.cart__preview-list').scrollBy(-100, 0);
+          }
         }
       })
     }
@@ -201,6 +208,63 @@ cartGalery = () => {
       _active(e.target.parentElement);
     }
   }
+
+  // maximize photo
+  main.onclick = () => {
+    var bg = $.createElement('div'),
+      close = $.createElement('div'),
+      next = $.createElement('div'),
+      prev = $.createElement('div'),
+      img = $.createElement('img');
+    
+    bg.className = 'modal';
+    close.className = 'modal__close';
+    next.className = 'modal__btn -next';
+    prev.className = 'modal__btn -prev';
+    img.className = 'modal__img';
+
+    $.querySelector('.cart').appendChild(bg);
+    bg.appendChild(close);
+    bg.appendChild(next);
+    bg.appendChild(prev);
+
+    img.setAttribute('src', main.getAttribute('src'));
+    img.setAttribute('alt', main.getAttribute('alt'));
+
+    bg.appendChild(img);
+
+    var items = [], obj = {}, curr;
+
+    for (let i = 0; i < $.querySelectorAll('.cart__preview').length; i++) {
+      obj = {};
+      var item = $.querySelectorAll('.cart__preview')[i];
+      obj.src = item.getAttribute('src');
+      obj.alt = item.getAttribute('alt');
+      items.push(obj);
+      if ($.querySelector('.cart__photo').getAttribute('src') === item.getAttribute('src'))
+        curr = i;
+    }
+
+    $.querySelectorAll('.modal__btn').forEach(item => {
+      item.onclick = () => {
+        if (item.classList.contains('-next')) {
+          if (curr !== items.length - 1) {
+            $.querySelector('.modal__img').setAttribute('src', items[++curr].src)
+            $.querySelector('.modal__img').setAttribute('alt', items[curr].alt)
+          }
+        }
+        if (item.classList.contains('-prev')) {
+          if (curr !== 0)
+            $.querySelector('.modal__img').setAttribute('src', items[--curr].src)
+            $.querySelector('.modal__img').setAttribute('alt', items[curr].alt)
+        }
+      }
+    });
+
+    $.querySelector('.cart').querySelector('.modal__close').onclick = () => {
+      $.querySelector('.cart').removeChild(bg);
+    }
+  }
 },
 filterShow = () => {
   $.querySelector('.listing-filter__control').onclick = () => {
@@ -230,9 +294,26 @@ pagination = () => {
   }
 },
 goTop = () => {
-  $.querySelector('.go-top').onclick = () => {
-    window.scrollTo(0, 0)
-  }
+  $.querySelector('.go-top').onclick = () => window.scrollTo(0, 0);
+
+  var prodCont = $.querySelector('.listing__generated-container'),
+    product = prodCont.querySelector('.product');
+
+  var _inner = () => {
+    if (prodCont.offsetHeight > product.offsetHeight * 4) {
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > product.offsetHeight * 4) {
+          $.querySelector('.go-top').classList.add('-active');
+        } else $.querySelector('.go-top').classList.remove('-active');
+      });
+    }
+  };
+
+  _inner();
+
+  window.addEventListener('resize', () => {
+    _inner();
+  });
 },
 swiper = () => {
   if ($.querySelector('.news-slider')) {
